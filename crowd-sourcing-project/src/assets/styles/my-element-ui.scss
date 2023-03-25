@@ -1,0 +1,40 @@
+// table
+.el-table {
+  border-radius: 18px;
+  border: 1px solid #1a1f1f;
+  background: #121212;
+}
+
+.el-table::before {
+  background: unset;
+}
+
+.el-table th.el-table__cell.is-leaf {
+  background: #1a1f1f;
+  color: #818f8e;
+  font-weight: 300;
+  border-bottom: unset;
+}
+
+.el-table td.el-table__cell {
+  border-bottom: unset;
+  color: #fff;
+}
+
+.el-table tr {
+  background: #121212;
+}
+
+.el-table tr:hover td {
+  background: #1a1f1f!important;
+}
+
+
+// form
+.el-form-item__label {
+  color: #fff;
+  font-weight: 300;
+}
+.el-input__inner, .el-textarea__inner {
+  background: #262c2c;
+}
