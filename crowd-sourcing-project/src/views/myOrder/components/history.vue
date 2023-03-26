@@ -37,7 +37,7 @@
           </div>
           <div class="right">
             <!-- <div class="progress">项目进度：{{ item.progress }}</div> -->
-            <el-button type="primary" style="margin-left:10px;">查看详情</el-button>
+            <el-button type="primary" style="margin-left:10px;" @click="viewDetail">查看详情</el-button>
           </div>
         </div>
       <!-- </div> -->
@@ -89,6 +89,11 @@ export default {
           status: true
         },
       ]
+    }
+  },
+  methods: {
+    viewDetail() {
+      this.$router.push('/task-detail')
     }
   }
 }

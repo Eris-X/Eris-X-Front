@@ -41,11 +41,11 @@ export const constantRoutes = [
       }
     ]
   },
-  // {
-  //   path: '/login',
-  //   component: () => import('@/views/login'),
-  //   hidden: true
-  // },
+  {
+    path: '/login',
+    component: () => import('@/views/newLogin'),
+    hidden: true
+  },
   // {
   //   path: '/register',
   //   component: () => import('@/views/register'),
@@ -101,6 +101,12 @@ export const constantRoutes = [
         component: () => import('@/views/pushTask'),
         name: 'PushTask',
         meta: { title: '发布任务', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'task-detail',
+        component: () => import('@/views/detail'),
+        name: 'TaskDetail',
+        meta: { title: '任务详情', icon: 'dashboard', affix: true }
       },
     ]
   },

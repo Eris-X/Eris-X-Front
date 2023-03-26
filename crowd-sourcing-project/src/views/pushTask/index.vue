@@ -76,7 +76,7 @@ export default {
 <style lang="scss" scoped>
   .push-task {
     padding: 20px 30px;
-    background: #262c2c;
+    background: #171c1c;
     border-radius: 20px;
     margin-top: 12px;
   }
