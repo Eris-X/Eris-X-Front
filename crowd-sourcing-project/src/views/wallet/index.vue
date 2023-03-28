@@ -60,19 +60,19 @@ export default {
       list: [
         {
           id: 1,
-          name: '任务1',
-          taskMoney: '100,000',
-          publisher: 'AAA',
-          money: '100,000',
+          name: '设计一个物流管理系统',
+          taskMoney: '10,000',
+          publisher: '何老板',
+          money: '10,000',
           time: '2022/01/11-2022/05/12'
         },
         {
           id: 2,
-          name: '任务2',
-          taskMoney: '90,000',
-          publisher: 'Elle',
-          money: '90,000',
-          time: '2023/01/1-2022/02/12'
+          name: '设计一个社交媒体应用',
+          taskMoney: '20,00',
+          publisher: '刘老板',
+          money: '20,00',
+          time: '2022/02/18-2022/03/22'
         },
       ],
       walletAddress: "",

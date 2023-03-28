@@ -18,51 +18,51 @@ export default {
       taskList: [
         {
           id: 1,
-          name: '任务1', // 任务名称
-          description: '我是任务1，我需要做一个小程序，介绍公司的产品，起到推广和运营的作用', // 介绍
-          publisher: 'Boss Li', // 发布方
-          money: '1,000', // 薪酬
-          skill: 'vue', // 需要的技能
+          name: '社区团购微信小程序', // 任务名称
+          description: '开发一个社区团购微信小程序，要求接入微信支付；负责提供小程序服务器部署与维护', // 介绍
+          publisher: '王老板', // 发布方
+          money: '30,000', // 薪酬
+          skill: 'Vue，Linux', // 需要的技能
           creditScore: '10', // 信誉分
           skillScore: '10' // 技能分
         },
         {
           id: 2,
-          name: '任务2', // 任务名称
-          description: '我是任务1，我需要做一个小程序，介绍公司的产品，起到推广和运营的作用', // 介绍
-          publisher: 'Boss Li', // 发布方
-          money: '1,000', // 薪酬
-          skill: 'vue', // 需要的技能
+          name: '图片爬虫程序设计', // 任务名称
+          description: '根据用户输入的关键词，从多个平台爬取真实的图片', // 介绍
+          publisher: '李老板', // 发布方
+          money: '2,000', // 薪酬
+          skill: 'Python', // 需要的技能
           creditScore: '10', // 信誉分
           skillScore: '10' // 技能分
         },
         {
           id: 3,
-          name: '任务3', // 任务名称
-          description: '我是任务1，我需要做一个小程序，介绍公司的产品，起到推广和运营的作用', // 介绍
-          publisher: 'Boss Li', // 发布方
-          money: '1,000', // 薪酬
-          skill: 'vue', // 需要的技能
+          name: '开发公司网站', // 任务名称
+          description: '帮可口可乐公司设计一个网站，网站内容主要有公司历史简介、公司主营产品简介、公司联系方式等', // 介绍
+          publisher: '赵老板', // 发布方
+          money: '25,000', // 薪酬
+          skill: 'Java，Vue', // 需要的技能
           creditScore: '10', // 信誉分
           skillScore: '10' // 技能分
         },
         {
           id: 4,
-          name: '任务4', // 任务名称
-          description: '我是任务1，我需要做一个小程序，介绍公司的产品，起到推广和运营的作用', // 介绍
-          publisher: 'Boss Li', // 发布方
-          money: '1,000', // 薪酬
-          skill: 'vue', // 需要的技能
+          name: 'Linux Shell脚本', // 任务名称
+          description: '写一个Linux Shell脚本，实现控制树莓派连接的摄像头每天固定时间拍摄照片发送至指定邮箱', // 介绍
+          publisher: '王老板', // 发布方
+          money: '500', // 薪酬
+          skill: 'Linux', // 需要的技能
           creditScore: '10', // 信誉分
           skillScore: '10' // 技能分
         },
         {
           id: 5,
-          name: '任务5', // 任务名称
-          description: '我是任务1，我需要做一个小程序，介绍公司的产品，起到推广和运营的作用', // 介绍
-          publisher: 'Boss Li', // 发布方
-          money: '1,000', // 薪酬
-          skill: 'vue', // 需要的技能
+          name: '系统日志分析', // 任务名称
+          description: '某公司遭遇到了网络攻击，分析给定系统日志，找出异常项，形成分析报告', // 介绍
+          publisher: '安老板', // 发布方
+          money: '5,000', // 薪酬
+          skill: '网络安全', // 需要的技能
           creditScore: '10', // 信誉分
           skillScore: '10' // 技能分
         },
