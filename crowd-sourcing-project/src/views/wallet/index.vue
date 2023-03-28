@@ -3,10 +3,10 @@
     <div class="container">
       <div class="my">
         <h4 style="margin: 0 0 20px;font-size: 20px;">我的钱包地址: {{ walletAddress }}</h4>
-        <button @click="get">连接钱包</button>
-        <button @click="getTokenBalance()">查余额</button>
-        <button @click="tokenTransfer()">转账代币</button>
-        <button @click="signMessage()">签名</button>
+        <button @click="ConnectWallet">连接钱包</button>
+        <button @click="getTokenBalance">查余额</button>
+        <button @click="tokenTransfer">转账代币</button>
+        <button @click="signMessage">签名</button>
         <button @click="getAllowance">查询授权金额</button>
         <button @click="getApprove">授权</button>
 
@@ -80,8 +80,8 @@ export default {
       tokenERCAddr:"0xaE2ABEFFccC28078EbA6EACE997eC52D40135450",
       web3: null,
       ethContract:null,
-      allowance:0
-
+      allowance:0,
+      chainId:'0x21A9B4',
     }
   },
   methods: {
@@ -101,16 +101,20 @@ export default {
       } else {
         // 如果用户没有安装 MetaMask，则使用 Infura 作为 Provider
         console.warn('No Web3 detected');
-        const provider = new Web3.providers.HttpProvider('https://devnet2openapi.platon.network/rpc', null, {chainId: 2206132});
+        const provider = new Web3.providers.HttpProvider('https://devnet2openapi.platon.network/rpc', null, {chainId: this.chainId});
         this.web3 = new Web3(provider);
       }
+      //切换到platon dev
+      await  window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: this.chainId}],
+      });
       this.ethContract = new this.web3.eth.Contract(abi, this.tokenERCAddr) //所有代币的abi可以通用（abi,合约地址）
-
     },
     getData() {
       console.log('first')
     },
-    get() {  // 唤起钱包
+    ConnectWallet() {  // 链接钱包
       if (window.ethereum) {
         window.ethereum.enable().then((res) => {
           this.walletAddress = res[0];
