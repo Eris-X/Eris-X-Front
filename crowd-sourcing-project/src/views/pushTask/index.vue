@@ -1,8 +1,8 @@
 <template>
   <div class="push-task">
-    <el-form ref="form" :model="form" label-width="120px">
+    <el-form ref="form" :model="form" label-width="120px" class="form">
       <el-form-item label="任务名">
-        <el-input v-model="form.name"></el-input>
+        <el-input v-model="form.name" style="width: 300px;"></el-input>
       </el-form-item>
       <el-form-item label="技能需求">
         <el-select
@@ -19,10 +19,10 @@
         </el-select>
       </el-form-item>
       <el-form-item label="信誉分门槛">
-        <el-input v-model="form.creditScore"></el-input>
+        <el-input v-model="form.creditScore" style="width: 220px;"></el-input>
       </el-form-item>
       <el-form-item label="技能分门槛">
-        <el-input v-model="form.skillScore"></el-input>
+        <el-input v-model="form.skillScore" style="width: 220px;"></el-input>
       </el-form-item>
       <el-form-item label="支付规则">
         <el-select
@@ -35,16 +35,16 @@
         </el-select>
       </el-form-item>
       <el-form-item label="薪资">
-        <el-input v-model="form.money"></el-input>
+        <el-input v-model="form.money" style="width: 220px;"></el-input>
       </el-form-item>
       <el-form-item label="任务介绍">
-        <el-input type="textarea" v-model="form.intro"></el-input>
+        <el-input type="textarea"  :autosize="{ minRows: 3, maxRows: 6}" v-model="form.intro" style="width: 400px;"></el-input>
       </el-form-item>
       <el-form-item label="需求说明">
-        <el-input type="textarea" v-model="form.desc"></el-input>
+        <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 6}" v-model="form.desc" style="width: 400px;"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">发布任务</el-button>
+        <el-button type="primary" @click="onSubmit" >发布任务</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -79,5 +79,13 @@ export default {
     background: #171c1c;
     border-radius: 20px;
     margin-top: 12px;
+    margin-left: 00px;
+    margin-right: 00px;
+
+  }
+  .form{
+    margin-left: 350px;
+    margin-right: 200px;
+
   }
 </style>

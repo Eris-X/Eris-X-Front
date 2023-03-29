@@ -18,7 +18,7 @@
             <div>已质押：100usdt</div>
           </div>
           <div class="card">
-            <div>总收入：100usdt</div>
+            <div>总收入：30000 usdt</div>
           </div>
         </div>
       </div>
@@ -69,9 +69,9 @@ export default {
         {
           id: 2,
           name: '设计一个社交媒体应用',
-          taskMoney: '20,00',
+          taskMoney: '20,000',
           publisher: '刘老板',
-          money: '20,00',
+          money: '20,000',
           time: '2022/02/18-2022/03/22'
         },
       ],

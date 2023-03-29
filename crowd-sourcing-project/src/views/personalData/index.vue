@@ -72,7 +72,7 @@ export default {
     return {
       userName: 'Lulu',
       editUserName: false,
-      des: '我是一名前端程序员，具备扎实的HTML、CSS和JavaScript等技术基础，擅长使用Vue前端框架开发各种类型的应用程序，了解Java与Python。我喜欢探索新的技术和工具，具备良好的自学能力和团队合作能力。我注重代码质量和用户体验，能够快速迭代和优化应用程序，同时也善于沟通和协作，能够与团队成员和客户保持良好的合作关系。',
+      des: '我是一名前端程序员，具备扎实的HTML、CSS和JavaScript等技术基础，擅长使用Vue前端框架开发各种类型的应用程序，了解Java与Python。',
       editDes: false,
       lang: ['中文', '英文'],
       editLang: false,
