@@ -12,7 +12,7 @@
           >
           <span style="font-size: 20px; font-weight: 700;">{{ item.name }}</span>
         </div>
-        <div class="des mb10" style="color: #a7a8a8;">{{ item.des }}</div>
+        <div class="des mb10" style="color: #a7a8a8;">{{ item.description }}</div>
         <div class="bottom mb10">
           <div class="left">
             <div class="publisher">发单方：{{ item.publisher }}</div>
@@ -20,7 +20,7 @@
           </div>
           <div class="right">
             <!-- <div class="progress">项目进度：{{ item.progress }}</div> -->
-            <el-button type="primary" style="margin-left:10px;">提交里程碑</el-button>
+            <el-button type="primary" style="margin-left:10px;" @click="submit(item)">提交任务</el-button>
           </div>
         </div>
       </div>
@@ -38,34 +38,64 @@
 <script>
 export default {
   name: 'UnderWay',
+  created() {
+    const underWayOrder = sessionStorage.getItem('underWayOrder');
+    this.taskList = JSON.parse(underWayOrder);
+  },
   data() {
     return {
-      taskList: [
-        {
-          id: 1,
-          name: '开发购物网站',
-          des: '为耐克公司开发一个购物网站，涉及到产品展示页面以及支付接口。要求使用spring boot框架。',
-          publisher: '李老板',
-          money: '200,000',
-          progress: 10
-        },
-        {
-          id: 2,
-          name: '开发微信小程序',
-          des: '为爱拍照相馆开发一个微信小程序，实现信息展示、顾客预约、顾客支付等功能。',
-          publisher: '贾老板',
-          money: '60,000',
-          progress: 90
-        },
-        {
-          id: 3,
-          name: '设计一个Python脚本',
-          des: '设计一个python脚本调用twitter的api爬取指定话题下的推文，要求在2023.4月前完成',
-          publisher: '陈老板',
-          money: '3,000',
-          progress: 56
-        },
-      ]
+      taskList: []
+      // taskList: [
+      //   {
+      //     id: 1,
+      //     name: '开发购物网站',
+      //     des: '为耐克公司开发一个购物网站，涉及到产品展示页面以及支付接口。要求使用spring boot框架。',
+      //     publisher: '李老板',
+      //     money: '200,000',
+      //     progress: 10
+      //   },
+      //   {
+      //     id: 2,
+      //     name: '开发微信小程序',
+      //     des: '为爱拍照相馆开发一个微信小程序，实现信息展示、顾客预约、顾客支付等功能。',
+      //     publisher: '贾老板',
+      //     money: '60,000',
+      //     progress: 90
+      //   },
+      //   {
+      //     id: 3,
+      //     name: '设计一个Python脚本',
+      //     des: '设计一个python脚本调用twitter的api爬取指定话题下的推文，要求在2023.4月前完成',
+      //     publisher: '陈老板',
+      //     money: '3,000',
+      //     progress: 56
+      //   },
+      // ]
+    }
+  },
+  methods: {
+    submit(current) {
+      // 删除 当前进行中的订单
+      const index = this.taskList.findIndex(item => item.id === current.id);
+      if (index === -1) {
+        // 删除失败了，给了个友情提示
+        this.$message.error('当前网络异常，请稍后重试...', {
+          duration: 5000
+        });
+        return;
+      }
+      this.taskList.splice(index, 1);
+      sessionStorage.setItem('underWayOrder', JSON.stringify(this.taskList));
+
+      // 新增 历史订单
+      const historyOrder = JSON.parse(sessionStorage.getItem('historyOrder'));
+      historyOrder.unshift(current);
+      sessionStorage.setItem('historyOrder', JSON.stringify(historyOrder));
+      
+      this.$message.success('任务已提交，请到历史订单中查看', {
+        // duration控制弹窗关闭时间
+        duration: 5000
+      });
     }
   }
 }
@@ -82,9 +112,17 @@ export default {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     &:hover {
       border-color: #41deca;
     }
+  }
+  .task-left {
+    flex: 1;
+  }
+  .task-right {
+    width: 145px;
+    margin-left: 30px;
   }
   .mb10 {
     margin-bottom: 10px;

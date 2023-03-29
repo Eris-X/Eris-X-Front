@@ -23,10 +23,10 @@
                     <i class="el-icon-menu"></i>
                     <span slot="title">个人资料</span>
                 </el-menu-item>
-                <el-menu-item index="wallet">
+                <!-- <el-menu-item index="wallet">
                     <i class="el-icon-menu"></i>
                     <span slot="title">我的钱包</span>
-                </el-menu-item>
+                </el-menu-item> -->
             </el-menu>
         </el-scrollbar>
     </div>

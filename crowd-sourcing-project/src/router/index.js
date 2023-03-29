@@ -90,12 +90,12 @@ export const constantRoutes = [
         name: 'PersonalData',
         meta: { title: '个人资料', icon: 'dashboard', affix: true }
       },
-      {
-        path: 'wallet',
-        component: () => import('@/views/wallet'),
-        name: 'Wallet',
-        meta: { title: '我的钱包', icon: 'dashboard', affix: true }
-      },
+      // {
+      //   path: 'wallet',
+      //   component: () => import('@/views/wallet'),
+      //   name: 'Wallet',
+      //   meta: { title: '我的钱包', icon: 'dashboard', affix: true }
+      // },
       {
         path: 'push-task',
         component: () => import('@/views/pushTask'),
@@ -103,7 +103,7 @@ export const constantRoutes = [
         meta: { title: '发布任务', icon: 'dashboard', affix: true }
       },
       {
-        path: 'task-detail',
+        path: 'task-detail/:arg',
         component: () => import('@/views/detail'),
         name: 'TaskDetail',
         meta: { title: '任务详情', icon: 'dashboard', affix: true }

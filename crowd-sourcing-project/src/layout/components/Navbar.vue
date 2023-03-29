@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <div class="right-menu">
+      <span style="color: #aaa;font-size:12px;margin-right: 15px;">角色：{{ user.role }}</span>
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img src="../../assets/images/profile.jpg" class="user-avatar">
@@ -23,6 +24,10 @@
 
 export default {
   computed: {
+    user() {
+      const role = sessionStorage.getItem('role');
+      return JSON.parse(role);
+    }
   },
   methods: {
     async logout() {
@@ -31,9 +36,8 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        // this.$store.dispatch('LogOut').then(() => {
-        //   location.href = '/index';
-        // })
+        sessionStorage.clear();
+        this.$router.push('/login');
       }).catch(() => {});
     }
   }
@@ -80,6 +84,7 @@ export default {
     float: right;
     height: 100%;
     line-height: 50px;
+    display: flex;
 
     &:focus {
       outline: none;

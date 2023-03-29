@@ -8,7 +8,7 @@
       <div :class="['btn', com==='History' ? 'is-active': '']" @click="() => this.com = 'History'">历史订单</div>
     </div>
     <div style="margin: 10px 0; text-align: right;">
-      <el-button type="primary" @click="pushTask">发布任务</el-button>
+      <el-button v-if="user.role === '发布者'" type="primary" @click="pushTask">发布任务</el-button>
     </div>
     <div class="container">
       <component :is="com"></component>
@@ -27,6 +27,12 @@ export default {
   data() {
     return {
       com: 'UnderWay'
+    }
+  },
+  computed: {
+    user() {
+      const role = sessionStorage.getItem('role');
+      return JSON.parse(role);
     }
   },
   methods: {

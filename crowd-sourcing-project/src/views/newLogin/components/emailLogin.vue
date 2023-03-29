@@ -1,6 +1,6 @@
 <template>
   <div class="email-login">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
+    <el-form ref="loginForm" :model="loginForm" class="login-form">
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -8,7 +8,6 @@
           auto-complete="off"
           placeholder="账号"
         >
-          <!-- <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" /> -->
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
@@ -17,10 +16,17 @@
           type="password"
           auto-complete="off"
           placeholder="密码"
-          @keyup.enter.native="handleLogin"
         >
-          <!-- <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" /> -->
         </el-input>
+      </el-form-item>
+      <el-form-item prop="role">
+        <el-select
+          v-model="loginForm.role"
+          style="width:100%;"
+        >
+          <el-option label="发布者" value="发布者"></el-option>
+          <el-option label="打工人" value="打工人"></el-option>
+        </el-select>
       </el-form-item>
       <el-form-item style="width:100%;">
         <el-button
@@ -30,17 +36,17 @@
           style="width:100%;"
           @click.native.prevent="handleLogin"
         >
-          <span v-if="!loading">登 录</span>
-          <span v-else>登 录 中...</span>
+          <span>登 录</span>
         </el-button>
-        <div style="float: right;" v-if="register">
+        <!-- <div style="float: right;" v-if="register">
           <router-link class="link-type" :to="'/register'">立即注册</router-link>
-        </div>
+        </div> -->
       </el-form-item>
     </el-form>
   </div>
 </template>
 <script>
+import { dog } from '../dog';
 export default {
   name: 'EmailLogin',
   data() {
@@ -49,9 +55,10 @@ export default {
       loginForm: {
         username: "admin",
         password: "admin123",
-        rememberMe: false,
-        code: "",
-        uuid: ""
+        role: '打工人'
+        // rememberMe: false,
+        // code: "",
+        // uuid: ""
       },
       loginRules: {
         username: [
@@ -72,12 +79,22 @@ export default {
   },
   methods: {
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
-        if (valid) {
-          this.loading = true;
-        }
-      });
+      console.log('login!!');
+      sessionStorage.setItem('role', JSON.stringify(this.loginForm));
+      if (this.loginForm.role === '打工人') {
+        sessionStorage.setItem('taskHall', JSON.stringify(dog.taskHall));
+        sessionStorage.setItem('underWayOrder', JSON.stringify(dog.underWayOrder));
+        sessionStorage.setItem('historyOrder', JSON.stringify(dog.historyOrder));
+      }
+      this.$router.push('/index');
     }
+    // handleLogin() {
+    //   this.$refs.loginForm.validate(valid => {
+    //     if (valid) {
+    //       this.loading = true;
+    //     }
+    //   });
+    // }
   }
 }
 </script>
