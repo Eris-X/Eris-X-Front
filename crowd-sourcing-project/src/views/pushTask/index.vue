@@ -50,6 +50,8 @@
   </div>
 </template>
 <script>
+import Web3 from 'web3'
+import abi from '../../abi/Project.json'
 export default {
   name: 'PushTask',
   data() {
@@ -63,12 +65,62 @@ export default {
         money: '', // 薪资
         intro: '', // 任务介绍
         desc: '', // 需求说明
-      }
+      },
+      balance:0,
+      tokenBalance: 0,
+      projectAddr: "0xaE2ABEFFccC28078EbA6EACE997eC52D40135450",
+      web3: null,
+      ethContract: null,
+      allowance: 0,
+      chainId: '0x21A9B4',
     }
+  },
+  mounted() {
+    this.initWeb3();
   },
   methods: {
     onSubmit() {
+      this.submitPorjectTochain();
       console.log('submit!');
+    },
+    async submitPorjectTochain() {
+      let accounts = await this.web3.eth.getAccounts();
+      console.log(accounts)
+      let options = {
+        from: accounts[0], // 发送者的地址
+      };
+      this.ethContract = new this.web3.eth.Contract(abi, this.projectAddr, {
+        from: accounts[0], // default from address
+        gasLimit: 70000,
+        gasPrice: 1000000000 // default gas price in wei, 10 gwei in this case
+      });
+      this.ethContract.methods.saveEvidence("current.id","current.id").send(options);
+    },
+    async initWeb3() {
+      if (typeof window.ethereum !== 'undefined') {
+        // 使用 MetaMask
+        this.web3 = new Web3(window.ethereum);
+        try {
+          // 请求用户授权
+          await window.ethereum.enable();
+        } catch (error) {
+          console.error('User denied account access');
+        }
+      } else if (typeof window.web3 !== 'undefined') {
+        // 使用旧版 MetaMask
+        this.web3 = new Web3(window.web3.currentProvider);
+      } else {
+        // 如果用户没有安装 MetaMask，则使用 Infura 作为 Provider
+        console.warn('No Web3 detected');
+        const provider = new Web3.providers.HttpProvider('https://devnet2openapi.platon.network/rpc', null, { chainId: this.chainId });
+        this.web3 = new Web3(provider);
+      }
+      //切换到platon dev
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: this.chainId }],
+      });
+      this.ethContract = new this.web3.eth.Contract(abi, this.projectAddr) //所有代币的abi可以通用（abi,合约地址）
     }
   }
 }

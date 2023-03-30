@@ -31,12 +31,12 @@
             </div>
             <div class="main">
               <div class="eth" style="border-right: 1px solid #262c2c;">
-                <span style="color: #fff; font-size: 22px;">0</span>
+                <span style="color: #fff; font-size: 22px;">{{this.balance}}</span>
                 <span style="color: #818f8e;">ETH</span>
               </div>
               <div class="usd">
-                <span style="color: #fff; font-size: 22px;">30000</span>
-                <span style="color: #818f8e;">USD</span>
+                <span style="color: #fff; font-size: 22px;">{{this.tokenBalance}}</span>
+                <span style="color: #818f8e;">CRT</span>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@
               </div>
             </div>
             <div class="main">
-              <span>0</span>
+              <span>2</span>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
               </div>
             </div>
             <div class="main">
-              <span>2</span>
+              <span>4</span>
             </div>
           </div>
         </div>
@@ -121,6 +121,9 @@
 </template>
 
 <script>
+import Web3 from 'web3'
+import abi from '../abi/ERC20.json'
+// import BigNumber from 'bignumber.js';
 export default {
   name: "Index",
   data() {
@@ -140,13 +143,82 @@ export default {
         name: '设计一个Python脚本',
         address: '设计一个python脚本调用twitter的api爬取指定话题下的推文，要求在2023.4月前完成',
         progress:'56%'
-      }]
+      }],
+      balance:0,
+      tokenBalance: 0,
+      tokenERCAddr: "0xaE2ABEFFccC28078EbA6EACE997eC52D40135450",
+      web3: null,
+      ethContract: null,
+      allowance: 0,
+      chainId: '0x21A9B4',
     };
+  },
+  mounted() {
+    this.initWeb3();
+    this.getEthBalance();
+    this.getTokenBalance();
   },
   methods: {
     goTarget(href) {
       window.open(href, "_blank");
-    }
+    },
+    async initWeb3() {
+      if (typeof window.ethereum !== 'undefined') {
+        // 使用 MetaMask
+        this.web3 = new Web3(window.ethereum);
+        try {
+          // 请求用户授权
+          await window.ethereum.enable();
+        } catch (error) {
+          console.error('User denied account access');
+        }
+      } else if (typeof window.web3 !== 'undefined') {
+        // 使用旧版 MetaMask
+        this.web3 = new Web3(window.web3.currentProvider);
+      } else {
+        // 如果用户没有安装 MetaMask，则使用 Infura 作为 Provider
+        console.warn('No Web3 detected');
+        const provider = new Web3.providers.HttpProvider('https://devnet2openapi.platon.network/rpc', null, { chainId: this.chainId });
+        this.web3 = new Web3(provider);
+      }
+      //切换到platon dev
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: this.chainId }],
+      });
+      this.ethContract = await new this.web3.eth.Contract(abi, this.tokenERCAddr) //所有代币的abi可以通用（abi,合约地址）
+    },
+    ConnectWallet() {  // 链接钱包
+      if (window.ethereum) {
+        window.ethereum.enable().then((res) => {
+          this.walletAddress = res[0];
+          // alert("当前钱包地址:" + res[0]);
+        });
+      } else {
+        alert("请安装MetaMask钱包");
+      }
+    },
+    //查询代币余额
+    async getEthBalance() {
+      if (window.ethereum) {
+        let fromAddress = await this.web3.eth.getAccounts()
+        this.web3.eth.getBalance(fromAddress[0], (err, res) => {
+          if (!err) {
+            this.balance = res / Math.pow(10, 18);
+          }
+        })
+      }
+    },
+    //查询代币余额
+    async getTokenBalance() {
+      this.ethContract = await new this.web3.eth.Contract(abi, this.tokenERCAddr) //所有代币的abi可以通用（abi,合约地址）
+      if (this.ethContract) {
+        let accounts = await this.web3.eth.getAccounts();
+        let decimals = await this.ethContract.methods.decimals().call();
+        this.tokenBalance = await this.ethContract.methods.balanceOf(accounts[0]).call() / Math.pow(10, decimals);
+        console.log(this.tokenBalance)
+      }
+    },
   }
 };
 </script>
@@ -169,7 +241,7 @@ export default {
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: url('../assets/images/profile.jpg') no-repeat center/cover;
+      background: url('../assets/images/monkey.jpeg') no-repeat center/cover;
       margin-right: 15px;
     }
     .name {
