@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      title: '众包系统',
+      title: 'ErisX',
       // logo: logoImg
     }
   }
@@ -75,7 +75,7 @@ export default {
       color: #fff;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 30px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
