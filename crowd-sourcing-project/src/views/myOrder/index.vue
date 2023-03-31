@@ -5,7 +5,7 @@
         :class="['btn', com==='UnderWay' ? 'is-active': '']" @click="() => this.com = 'UnderWay'"
         style="margin-right: 15px;"
       >Ongoing Tasks</div>
-      <div :class="['btn', com==='History' ? 'is-active': '']" @click="() => this.com = 'History'">Historical Orders</div>
+      <div :class="['btn', com==='History' ? 'is-active': '']" @click="() => this.com = 'History'">Historical Tasks</div>
     </div>
     <div style="margin: 10px 0; text-align: right;">
       <el-button v-if="user.role === 'issuer'" type="primary" @click="pushTask">Issue Tasks</el-button>

@@ -1,7 +1,7 @@
 <template>
   <div class="push-task">
     <el-form ref="form" :model="form" label-width="120px" class="form">
-      <el-form-item label="Tasks name">
+      <el-form-item label="Task name">
         <el-input v-model="form.name" style="width: 300px;"></el-input>
       </el-form-item>
       <el-form-item label="Skills needed">
@@ -37,7 +37,7 @@
       <el-form-item label="Salary">
         <el-input v-model="form.money" style="width: 220px;"></el-input>
       </el-form-item>
-      <el-form-item label="Object introduction">
+      <el-form-item label="Task Abstract">
         <el-input type="textarea"  :autosize="{ minRows: 3, maxRows: 6}" v-model="form.intro" style="width: 400px;"></el-input>
       </el-form-item>
       <el-form-item label="Demand information">

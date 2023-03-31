@@ -46,7 +46,7 @@
             <div class="title">
               <div class="diff">
                 <img src="../assets/images/fans.png" alt="" width="18px" style="margin-right: 10px">
-                <span style="color:#fff; font-size:16px;">Ongoing Order</span>
+                <span style="color:#fff; font-size:16px;">Ongoing Task</span>
               </div>
             </div>
             <div class="main">
