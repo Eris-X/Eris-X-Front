@@ -6,7 +6,7 @@
       </el-form-item>
       <el-form-item label="Skills needed">
         <el-select
-          v-model="form.region"
+          v-model="form.skill"
           placeholder="Please select skill wanted"
           multiple
         >
@@ -26,7 +26,7 @@
       </el-form-item>
       <el-form-item label="Pay method">
         <el-select
-          v-model="form.pay"
+          v-model="form.payRule"
           placeholder="Please select pay method"
         >
           <el-option label="Deposit & Final Payment" value="1"></el-option>
@@ -41,7 +41,7 @@
         <el-input type="textarea"  :autosize="{ minRows: 3, maxRows: 6}" v-model="form.intro" style="width: 400px;"></el-input>
       </el-form-item>
       <el-form-item label="Demand information">
-        <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 6}" v-model="form.desc" style="width: 400px;"></el-input>
+        <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 6}" v-model="form.description" style="width: 400px;"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit" >Submit</el-button>
@@ -61,10 +61,12 @@ export default {
         skill: [], // 技能需求
         creditScore: '', // 信誉分门槛
         skillScore: '', // 技能分门槛
-        pay: '', // 支付规则
+        payRule: '', // 支付规则
         money: '', // 薪资
         intro: '', // 任务介绍
-        desc: '', // 需求说明
+        description: '', // 需求说明
+        publisher: 'Lulu', // 发布方
+        time: '2023/04/12-2023/06/15'
       },
       balance:0,
       tokenBalance: 0,
@@ -81,7 +83,27 @@ export default {
   methods: {
     onSubmit() {
       this.submitPorjectTochain();
-      console.log('submit!');
+      console.log('submit!', this.form);
+      const params = {
+        ...this.form,
+        skill: this.form.skill.join(),
+      }
+
+      // 加到 任务大厅
+      const taskHall = JSON.parse(localStorage.getItem('taskHall'));
+      taskHall.unshift(params);
+      localStorage.setItem('taskHall', JSON.stringify(taskHall));
+
+      // 加到 任务大厅
+      const bossUnderWayOrder = JSON.parse(localStorage.getItem('bossUnderWayOrder'));
+      bossUnderWayOrder.unshift(params);
+      localStorage.setItem('bossUnderWayOrder', JSON.stringify(bossUnderWayOrder));
+
+      setTimeout(() => {
+        this.$message.success('任务发布成功，请前往任务大厅或我的订单查看！', {
+          duration: 5000
+        });
+      }, 5000);
     },
     async submitPorjectTochain() {
       let accounts = await this.web3.eth.getAccounts();

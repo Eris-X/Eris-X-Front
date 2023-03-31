@@ -108,7 +108,7 @@ export default {
         cancelButtonText: 'Cancel',
         type: 'warning'
       }).then(() => {
-        sessionStorage.clear();
+        // localStorage.clear();
         this.$router.push('/login');
       }).catch(() => { });
     }

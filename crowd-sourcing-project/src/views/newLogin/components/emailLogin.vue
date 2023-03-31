@@ -56,9 +56,6 @@ export default {
         username: "admin",
         password: "admin123",
         role: 'worker'
-        // rememberMe: false,
-        // code: "",
-        // uuid: ""
       },
       loginRules: {
         username: [
@@ -81,20 +78,16 @@ export default {
     handleLogin() {
       console.log('login!!');
       sessionStorage.setItem('role', JSON.stringify(this.loginForm));
+      localStorage.setItem('taskHall', JSON.stringify(dog.taskHall));
       if (this.loginForm.role === 'worker') {
-        sessionStorage.setItem('taskHall', JSON.stringify(dog.taskHall));
-        sessionStorage.setItem('underWayOrder', JSON.stringify(dog.underWayOrder));
-        sessionStorage.setItem('historyOrder', JSON.stringify(dog.historyOrder));
+        localStorage.setItem('workerUnderWayOrder', JSON.stringify(dog.workerUnderWayOrder));
+        localStorage.setItem('workerHistoryOrder', JSON.stringify(dog.workerHistoryOrder));
+      } else if (this.loginForm.role === 'issuer') {
+        localStorage.setItem('bossUnderWayOrder', JSON.stringify(dog.bossUnderWayOrder));
+        localStorage.setItem('bossHistoryOrder', JSON.stringify(dog.bossHistoryOrder));
       }
       this.$router.push('/index');
     }
-    // handleLogin() {
-    //   this.$refs.loginForm.validate(valid => {
-    //     if (valid) {
-    //       this.loading = true;
-    //     }
-    //   });
-    // }
   }
 }
 </script>

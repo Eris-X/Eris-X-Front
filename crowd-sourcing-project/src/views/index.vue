@@ -86,7 +86,7 @@
     <el-row :gutter="20">
       <div style="margin-top: 20px;">
         <el-table
-          :data="tableData"
+          :data="user.role === 'worker' ? workerTableData : bossTableData"
           style="width: 100%">
           <el-table-column
             prop="date"
@@ -128,7 +128,7 @@ export default {
   name: "Index",
   data() {
     return {
-      tableData: [{
+      workerTableData: [{
         date: '2023-07-02',
         name: 'Develop Shopping Websites.',
         address: 'Develop a shopping website for Nike, requesting a product which has a webpage and payment interface. Need to use spring boot frame.',
@@ -144,6 +144,12 @@ export default {
         address: 'Design a python script which uses api of twitter to get tweets from assigned hashtags. Need to be done before April of 2023.',
         progress:'56%'
       }],
+      bossTableData: [{
+        date: '2023-07-02',
+        name: '代码里搜我是小瓜皮，就能找到代码罗',
+        address: 'Develop a shopping website for Nike, requesting a product which has a webpage and payment interface. Need to use spring boot frame.',
+        progress:'10%'
+      }],
       balance:0,
       tokenBalance: 0,
       tokenERCAddr: "0xaE2ABEFFccC28078EbA6EACE997eC52D40135450",
@@ -152,6 +158,12 @@ export default {
       allowance: 0,
       chainId: '0x21A9B4',
     };
+  },
+  computed: {
+    user() {
+      const role = sessionStorage.getItem('role');
+      return JSON.parse(role);
+    }
   },
   mounted() {
     this.initWeb3();

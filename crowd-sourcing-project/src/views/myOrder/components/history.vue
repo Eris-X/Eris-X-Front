@@ -19,7 +19,7 @@
                 style="color:#41deca;margin-right:10px;font-size:20px;font-weight: 700;"
               ></i>Done
             </div>
-            <div v-if="!item.taskStatus" style="display: flex;">
+            <div v-else style="display: flex;">
               <i
                 class="el-icon-error"
                 style="color:red;margin-right:10px;font-size:20px;font-weight: 700;"
@@ -81,9 +81,14 @@ export default {
     }
   },
   computed: {
+    user() {
+      const role = sessionStorage.getItem('role');
+      return JSON.parse(role);
+    },
     taskList() {
-      const historyOrder = sessionStorage.getItem('historyOrder');
-      return JSON.parse(historyOrder);
+      const workerHistoryOrder = localStorage.getItem('workerHistoryOrder');
+      const bossHistoryOrder = localStorage.getItem('bossHistoryOrder');
+      return this.user.role === 'worker' ? JSON.parse(workerHistoryOrder) : JSON.parse(bossHistoryOrder);
     },
   },
   methods: {

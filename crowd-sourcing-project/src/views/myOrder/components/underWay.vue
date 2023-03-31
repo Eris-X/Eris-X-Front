@@ -20,7 +20,7 @@
           </div>
           <div class="right">
             <!-- <div class="progress">项目进度：{{ item.progress }}</div> -->
-            <el-button type="primary" style="margin-left:10px;" @click="submit(item)">Submit</el-button>
+            <el-button v-if="user.role === 'worker'" type="primary" style="margin-left:10px;" @click="submit(item)">Submit</el-button>
           </div>
         </div>
       </div>
@@ -41,8 +41,15 @@ import abi from '../../../abi/Project.json'
 export default {
   name: 'UnderWay',
   created() {
-    const underWayOrder = sessionStorage.getItem('underWayOrder');
-    this.taskList = JSON.parse(underWayOrder);
+    const workerUnderWayOrder = localStorage.getItem('workerUnderWayOrder');
+    const bossUnderWayOrder = localStorage.getItem('bossUnderWayOrder');
+    this.taskList = this.user.role === 'worker' ? JSON.parse(workerUnderWayOrder) : JSON.parse(bossUnderWayOrder);
+  },
+  computed: {
+    user() {
+      const role = sessionStorage.getItem('role');
+      return JSON.parse(role);
+    }
   },
   data() {
     return {
@@ -54,32 +61,6 @@ export default {
       ethContract: null,
       allowance: 0,
       chainId: '0x21A9B4',
-      // taskList: [
-      //   {
-      //     id: 1,
-      //     name: '开发购物网站',
-      //     des: '为耐克公司开发一个购物网站，涉及到产品展示页面以及支付接口。要求使用spring boot框架。',
-      //     publisher: '李老板',
-      //     money: '200,000',
-      //     progress: 10
-      //   },
-      //   {
-      //     id: 2,
-      //     name: '开发微信小程序',
-      //     des: '为爱拍照相馆开发一个微信小程序，实现信息展示、顾客预约、顾客支付等功能。',
-      //     publisher: '贾老板',
-      //     money: '60,000',
-      //     progress: 90
-      //   },
-      //   {
-      //     id: 3,
-      //     name: '设计一个Python脚本',
-      //     des: '设计一个python脚本调用twitter的api爬取指定话题下的推文，要求在2023.4月前完成',
-      //     publisher: '陈老板',
-      //     money: '3,000',
-      //     progress: 56
-      //   },
-      // ]
     }
   },
   mounted() {
@@ -101,28 +82,36 @@ export default {
     },
 
     async submit(current) {
-      await this.submitPorjectTochain(current);
-      // 删除 当前进行中的订单
-      const index = this.taskList.findIndex(item => item.id === current.id);
-      if (index === -1) {
-        // 删除失败了，给了个友情提示
-        this.$message.error('当前网络异常，请稍后重试...', {
-          duration: 5000
-        });
-        return;
+      try {
+        await this.submitPorjectTochain(current);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        // 删除 当前进行中的订单
+        console.log(111);
+        const index = this.taskList.findIndex(item => item.id === current.id);
+        if (index === -1) {
+          // 删除失败了，给了个友情提示
+          this.$message.error('当前网络异常，请稍后重试...', {
+            duration: 5000
+          });
+        } else {
+          setTimeout(() => {
+            this.taskList.splice(index, 1);
+            localStorage.setItem('workerUnderWayOrder', JSON.stringify(this.taskList));
+    
+            // 新增 历史订单
+            const workerHistoryOrder = JSON.parse(localStorage.getItem('workerHistoryOrder'));
+            workerHistoryOrder.unshift(current);
+            localStorage.setItem('workerHistoryOrder', JSON.stringify(workerHistoryOrder));
+            this.$message.success('任务已提交，请到历史订单中查看', {
+            // duration控制弹窗关闭时间
+            duration: 5000
+          });
+          }, 5000);
+        }
       }
-      this.taskList.splice(index, 1);
-      sessionStorage.setItem('underWayOrder', JSON.stringify(this.taskList));
-
-      // 新增 历史订单
-      const historyOrder = JSON.parse(sessionStorage.getItem('historyOrder'));
-      historyOrder.unshift(current);
-      sessionStorage.setItem('historyOrder', JSON.stringify(historyOrder));
       
-      this.$message.success('任务已提交，请到历史订单中查看', {
-        // duration控制弹窗关闭时间
-        duration: 5000
-      });
     },
     async initWeb3() {
       if (typeof window.ethereum !== 'undefined') {
@@ -172,6 +161,10 @@ export default {
   }
   .task-left {
     flex: 1;
+    width: 80%;
+    .des {
+      word-break: break-word;
+    }
   }
   .task-right {
     width: 145px;

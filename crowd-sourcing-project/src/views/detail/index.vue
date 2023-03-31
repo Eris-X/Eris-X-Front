@@ -14,19 +14,21 @@
       </div>
       <div class="inner">
         <div class="des">{{ list.description }}</div>
-        <div class="skill">
+        <!-- <div class="skill">
           <span class="center">
             <star />Skills needed: {{ list.skill }}
           </span>
           <span class="center">
-            <!-- <star />Reputation & Skill needed:Reputation Credits:{{ list.creditScore }} Skill needed:{{ list.skillScore }} -->
 
             <star />Reputation Credits:{{ list.creditScore }}
           </span>
           <span>
             <star/>Skill Credits:{{ list.skillScore }}
           </span>
-        </div>
+        </div> -->
+        <div class="mb20"><star />Skills needed: {{ list.skill }}</div>
+        <div class="mb20"><star />Reputation Credits:{{ list.creditScore }}</div>
+        <div class="mb20"><star/>Skill Credits:{{ list.skillScore }}</div>
         <div class="rule center">
           <star />Pay method： {{ list.payRule }}
         </div>
@@ -43,7 +45,7 @@
             <star />Date:{{ list.time }}
           </div>
           <div class="right">
-            <el-button v-if="user.role === 'issuer'" type="primary">Submit Task</el-button>
+            <!-- <el-button v-if="user.role === 'issuer' && list.status === 1" type="primary">Submit Task</el-button> -->
             <el-button v-if="user.role === 'worker' && list.status === 0" type="primary"
               @click="receiveTask">Accept Task</el-button>
           </div>
@@ -160,27 +162,35 @@ export default {
 
       await this.submitPorjectTochain();
       // 删除 任务大厅
-      const oldTaskList = JSON.parse(sessionStorage.getItem('taskHall'));
+      const oldTaskList = JSON.parse(localStorage.getItem('taskHall'));
       const index = oldTaskList.findIndex(item => item.id === this.list.id);
       if (index === -1) return;
       oldTaskList.splice(index, 1);
-      sessionStorage.setItem('taskHall', JSON.stringify(oldTaskList));
-      // 新增到 我的订单-进行中的订单
+      localStorage.setItem('taskHall', JSON.stringify(oldTaskList));
+
       const myNewTask = this.list;
-      const myOrder = JSON.parse(sessionStorage.getItem('underWayOrder'));
-      myOrder.unshift(myNewTask);
-      sessionStorage.setItem('underWayOrder', JSON.stringify(myOrder));
+      // 新增到 我的订单-进行中的订单(角色：打工者)
+      const workerUnderWayOrder = JSON.parse(localStorage.getItem('workerUnderWayOrder'));
+      workerUnderWayOrder.unshift(myNewTask);
+      localStorage.setItem('workerUnderWayOrder', JSON.stringify(workerUnderWayOrder));
 
-      this.$message.success('任务已接收，请到我的订单中查看', {
-        // duration控制弹窗关闭时间
-        duration: 5000
-      });
+      // 新增到 我的订单-进行中的订单(角色：发布者)
+      // const bossUnderWayOrder = JSON.parse(localStorage.getItem('bossUnderWayOrder'));
+      // bossUnderWayOrder.unshift(myNewTask);
+      // localStorage.setItem('bossUnderWayOrder', JSON.stringify(bossUnderWayOrder));
 
-      // 按照业务场景，我给出以下方案，仅供参考：
-      // 第一，如果想要返回【任务大厅】打开this.back(),否则注释
-      this.back();
-      // 第二，如果任务已接收，想要直接跳转到我的订单，请打开以下注释
-      // this.$router.push('/my-order');
+      setTimeout(() => {
+        this.$message.success('任务已接收，请到我的订单中查看', {
+          // duration控制弹窗关闭时间
+          duration: 5000
+        });
+  
+        // 按照业务场景，我给出以下方案，仅供参考：
+        // 第一，如果想要返回【任务大厅】打开this.back(),否则注释
+        this.back();
+        // 第二，如果任务已接收，想要直接跳转到我的订单，请打开以下注释
+        // this.$router.push('/my-order');
+      }, 5000);
 
     }
   }
@@ -254,5 +264,9 @@ export default {
       color: #41deca;
       font-weight: 500;
     }
+  }
+
+  .mb20 {
+    margin-bottom: 20px;
   }
 }</style>

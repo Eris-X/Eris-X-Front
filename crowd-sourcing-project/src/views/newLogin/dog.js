@@ -1,8 +1,8 @@
 // dog=天选worker
-// 所有需要缓存到的数据都放在这里了，登录的时候会缓存到sessionStorage里，否则无法完成交互
+// 所有需要缓存到的数据都放在这里了，登录的时候会缓存到 localStorage 里，否则无法完成交互
 // 重要：id必须是唯一的，不管他是taskHall还是underWayOrder
 export const dog = {
-  // taskHall -- 任务大厅列表
+  // taskHall -- 任务大厅列表(角色共用)
   taskHall: [
     {
       id: 1,
@@ -70,8 +70,8 @@ export const dog = {
       time: '2022/03/12-2022/04/11'
     },
   ],
-  // underWayOrder -- 我的订单-进行中的订单
-  underWayOrder: [
+  // workerUnderWayOrder -- 我的订单-进行中的订单（角色：打工人）
+  workerUnderWayOrder: [
     {
       id: 6,
       name: 'Develop Shopping Websites.',
@@ -122,8 +122,8 @@ export const dog = {
       // explain: '1.巴拉巴拉...',
     },
   ],
-  // historyOrder -- 我的订单-历史订单
-  historyOrder: [
+  // workerHistoryOrder -- 我的订单-历史订单(角色：打工人)
+  workerHistoryOrder: [
     {
       id: 9,
       name: 'Design a logistical management system.',
@@ -148,7 +148,7 @@ export const dog = {
       money: '26,000',
       progress: '90',
       time: '2022/01/12-2022/02/22',
-      taskStatus: false,
+      taskStatus: true,
       status: 3,
       skill: 'Vue, Linux', // 需要的技能
       creditScore: '10', // 信誉分
@@ -165,6 +165,61 @@ export const dog = {
       progress: '56',
       time: '2022/02/18-2022/03/22',
       taskStatus: true,
+      status: 2,
+      skill: 'Vue, Linux', // 需要的技能
+      creditScore: '10', // 信誉分
+      skillScore: '10', // 技能分
+      payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
+      // explain: '1.巴拉巴拉...',
+    },
+  ],
+  // bossUnderWayOrder -- 我的订单-进行中的订单（角色：发布者）
+  bossUnderWayOrder: [
+    {
+      id: 12,
+      name: 'Develop Shopping Websites.',
+      description: 'Develop a shopping website for Nike, requesting a product which has a webpage and payment interface. Need to use spring boot frame.',
+      publisher: 'Boss Li',
+      money: '200,000',
+      progress: 10,
+      time: '2022/01/11-2022/05/12',
+      taskStatus: true, 
+      status: 2,
+      skill: 'Vue, Linux', // 需要的技能
+      creditScore: '10', // 信誉分
+      skillScore: '10', // 技能分
+      payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
+      // explain: '1.巴拉巴拉...',
+      
+    },
+    {
+      id: 13,
+      name: 'Develop wechat mini programs.',
+      description: 'Develop a wechat mini program for Aipai photo studio. Need to realize functions of showing information, reservation and payment.',
+      publisher: 'Boss Jia',
+      money: '60,000',
+      progress: 90,
+      time: '2022/01/11-2022/05/12',
+      taskStatus: true, 
+      status: 2,
+      skill: 'Vue, Linux', // 需要的技能
+      creditScore: '10', // 信誉分
+      skillScore: '10', // 技能分
+      payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
+      // explain: '1.巴拉巴拉...',
+    },
+  ],
+  // bossHistoryOrder -- 我的订单-历史订单(角色：发布者)
+  bossHistoryOrder: [
+    {
+      id: 14,
+      name: 'Design a logistical management system.',
+      description: 'Design a logistical management system which has characteristics such as real-time data processing, visualization, multiple-role management and scalability.',
+      publisher: 'Boss He',
+      money: '10,000',
+      progress: '10',
+      time: '2022/01/11-2022/05/12',
+      taskStatus: true, 
       status: 2,
       skill: 'Vue, Linux', // 需要的技能
       creditScore: '10', // 信誉分

@@ -71,7 +71,7 @@ export default {
   },
   computed: {
     taskList() {
-      return JSON.parse(sessionStorage.getItem('taskHall'));
+      return JSON.parse(localStorage.getItem('taskHall'));
     }
   },
   methods: {
@@ -98,7 +98,7 @@ export default {
     
     .task {
       width: 30%;
-      height: 230px;
+      height: 260px;
       padding: 20px;
       border-radius: 20px;
       background: #262c2c;
@@ -116,6 +116,11 @@ export default {
     .name {
       font-size: 20px;
       font-weight: 700;
+    }
+    .des {
+      overflow: hidden;
+      word-wrap: break-word;
+      height: 60px;
     }
   }
 </style>

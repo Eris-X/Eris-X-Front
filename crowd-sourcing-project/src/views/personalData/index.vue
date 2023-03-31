@@ -37,6 +37,8 @@
               <i class="el-icon-edit" style="color: rgb(65, 222, 202);margin-left: 5px;"></i>
             </span>
           </div>
+          <div>信誉分：99</div>
+          <div>技能分：99</div>
         </div>
       </div>
       <div class="right">
@@ -99,7 +101,7 @@ export default {
   font-size: 13px;
   flex-direction: column;
   .intro {
-    height: 150px;
+    min-height: 150px;
     margin-top: 20px;
     padding-bottom: 20px;
     display: flex;
