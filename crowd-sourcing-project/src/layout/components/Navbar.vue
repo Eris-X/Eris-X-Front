@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <div class="right-menu">
-      <span style="color: #aaa;font-size:12px;margin-right: 15px;">角色：{{ user.role }}</span>
+      <span style="color: #aaa;font-size:12px;margin-right: 15px;">Role:{{ user.role }}</span>
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img src="../../assets/images/monkey.jpeg" class="user-avatar">
@@ -9,10 +9,10 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/personal-data">
-            <el-dropdown-item>个人资料</el-dropdown-item>
+            <el-dropdown-item>Personal Profile</el-dropdown-item>
           </router-link>
           <el-dropdown-item divided @click.native="logout">
-            <span>退出登录</span>
+            <span>Log out</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -103,9 +103,9 @@ export default {
       }
     },
     async logout() {
-      this.$confirm('确定注销并退出系统吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+      this.$confirm('Are you sure log out?', 'Tip', {
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
         type: 'warning'
       }).then(() => {
         sessionStorage.clear();

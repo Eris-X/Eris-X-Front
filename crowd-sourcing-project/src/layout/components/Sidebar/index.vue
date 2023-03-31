@@ -9,19 +9,19 @@
             >
                 <el-menu-item index="index">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">主页</span>
+                    <span slot="title">Home</span>
                 </el-menu-item>
                 <el-menu-item index="order-receive-hall">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">接单大厅</span>
+                    <span slot="title">Order Space</span>
                 </el-menu-item>
                 <el-menu-item index="my-order">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">我的订单</span>
+                    <span slot="title">My Order</span>
                 </el-menu-item>
                 <el-menu-item index="personal-data">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">个人资料</span>
+                    <span slot="title">My Profile</span>
                 </el-menu-item>
                 <!-- <el-menu-item index="wallet">
                     <i class="el-icon-menu"></i>

@@ -13,31 +13,31 @@
 
         <div class="card-container">
           <div class="card">
-            <div>余额：{{tokenBalance}}</div>
-            <div>授权额度：{{allowance}}</div>
-            <div>已质押：100usdt</div>
+            <div>Balance:{{tokenBalance}}</div>
+            <div>Authorized quota:{{allowance}}</div>
+            <div>Deposit: 100usdt</div>
           </div>
           <div class="card">
-            <div>总收入：30000 usdt</div>
+            <div>Total income: 30000 usdt</div>
           </div>
         </div>
       </div>
       <div class="detail">
-        <h4 style="margin: 20px 0 20px;font-size: 20px;">收支明细</h4>
+        <h4 style="margin: 20px 0 20px;font-size: 20px;">Revenue and expenditure details</h4>
         <div class="card-container">
           <div class="card" v-for="item in list" :key="item.id">
             <div class="task">
               <div class="name">{{ item.name }}</div>
-              <div class="money">任务收入：{{ item.taskMoney }} usdt</div>
+              <div class="money">Task income:{{ item.taskMoney }} usdt</div>
             </div>
             <div class="other">
               <div class="left">
-                <div class="boss">发单方：{{ item.publisher }}</div>
-                <div class="boss">薪资：{{ item.money }}</div>
-                <div class="boss">时间：{{ item.time }}</div>
+                <div class="boss">Issuer: {{ item.publisher }}</div>
+                <div class="boss">Salary:{{ item.money }}</div>
+                <div class="boss">date:{{ item.time }}</div>
               </div>
               <div class="right">
-                <el-button type="primary">查看任务</el-button>
+                <el-button type="primary">task detail</el-button>
               </div>
             </div>
           </div>
@@ -60,17 +60,17 @@ export default {
       list: [
         {
           id: 1,
-          name: '设计一个物流管理系统',
+          name: 'Design a logistical management system',
           taskMoney: '10,000',
-          publisher: '何老板',
+          publisher: 'Boss He',
           money: '10,000',
           time: '2022/01/11-2022/05/12'
         },
         {
           id: 2,
-          name: '设计一个社交媒体应用',
+          name: 'Design a social media application',
           taskMoney: '20,000',
-          publisher: '刘老板',
+          publisher: 'Boss Liu',
           money: '20,000',
           time: '2022/02/18-2022/03/22'
         },

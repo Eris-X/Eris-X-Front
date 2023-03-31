@@ -24,8 +24,8 @@
           v-model="loginForm.role"
           style="width:100%;"
         >
-          <el-option label="发布者" value="发布者"></el-option>
-          <el-option label="打工人" value="打工人"></el-option>
+          <el-option label="issuer" value="issuer"></el-option>
+          <el-option label="worker" value="worker"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item style="width:100%;">
@@ -36,7 +36,7 @@
           style="width:100%;"
           @click.native.prevent="handleLogin"
         >
-          <span>登 录</span>
+          <span>Login</span>
         </el-button>
         <!-- <div style="float: right;" v-if="register">
           <router-link class="link-type" :to="'/register'">立即注册</router-link>
@@ -55,7 +55,7 @@ export default {
       loginForm: {
         username: "admin",
         password: "admin123",
-        role: '打工人'
+        role: 'worker'
         // rememberMe: false,
         // code: "",
         // uuid: ""
@@ -81,7 +81,7 @@ export default {
     handleLogin() {
       console.log('login!!');
       sessionStorage.setItem('role', JSON.stringify(this.loginForm));
-      if (this.loginForm.role === '打工人') {
+      if (this.loginForm.role === 'worker') {
         sessionStorage.setItem('taskHall', JSON.stringify(dog.taskHall));
         sessionStorage.setItem('underWayOrder', JSON.stringify(dog.underWayOrder));
         sessionStorage.setItem('historyOrder', JSON.stringify(dog.historyOrder));

@@ -1,6 +1,6 @@
 <template>
   <div class="wallet-login">
-    <h2 style="color: red;">钱包登录</h2>
+    <h2 style="color: red;">Wallet Login</h2>
   </div>
 </template>
 <script>

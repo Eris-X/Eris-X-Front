@@ -5,7 +5,7 @@
         <div class="photo"></div>
         <div class="user">
           <div>
-            用户名：
+            Username:
             <el-input v-if="editUserName" v-model="userName" @blur="() => editUserName = false"></el-input>
             <span v-else @click="() => editUserName = true">
               <span class="content">{{ userName }}</span>
@@ -14,7 +14,7 @@
           </div>
 
           <div>
-            个人简介设置：
+            Personal Profile: 
             <el-input v-if="editDes" v-model="des" @blur="() => editDes = false"></el-input>
             <span v-else @click="() => editDes = true">
               <span class="content">{{ des }}</span>
@@ -22,15 +22,15 @@
           </div>
 
           <div>
-            <a href="">linktree链接</a>
+            <a href="">Linktree link</a>
           </div>
 
           <div>
-            工作语言：
+            Working language: 
             <el-select v-if="editLang" v-model="lang" @change="() => editLang = false" multiple>
-              <el-option label="中文" value="中文"></el-option>
-              <el-option label="英文" value="英文"></el-option>
-              <el-option label="法语" value="法语"></el-option>
+              <el-option label="Chinese" value="Chinese"></el-option>
+              <el-option label="English" value="English"></el-option>
+              <el-option label="French" value="French"></el-option>
             </el-select>
             <span v-else @click="() => editLang = true">
               <span class="content">{{ lang.join(',') }}</span>
@@ -41,7 +41,7 @@
       </div>
       <div class="right">
         <div class="inner">
-          <div class="title">擅长技能</div>
+          <div class="title">Personal skills</div>
           <div class="skill-icon">
             <img src="../../assets/images/vue.png" width="32px" alt="">
             <img src="../../assets/images/js.png" width="32px" alt="">
@@ -59,7 +59,7 @@
         </div>
         <div class="des">{{ item.des }}</div>
         <div class="btn">
-          <el-button type="primary">链接：github</el-button>
+          <el-button type="primary">Github link</el-button>
         </div>
       </div>
     </div>
@@ -72,20 +72,20 @@ export default {
     return {
       userName: 'Lulu',
       editUserName: false,
-      des: '我是一名前端程序员，具备扎实的HTML、CSS和JavaScript等技术基础，擅长使用Vue前端框架开发各种类型的应用程序，了解Java与Python。',
+      des: 'I am a front-end programmer with solid background in HTML, CSS and JavaScript. I am good at using Vue front-end frames to develop various apps. I know Java and Python.',
       editDes: false,
-      lang: ['中文', '英文'],
+      lang: ['Chinese', 'English'],
       editLang: false,
       list: [
         {
           id: 1,
-          name: '参与开发可可论坛',
-          des: '该项目是一个使用Vue前端框架与Spring boot开发的社交媒体应用。该应用可以实现用户注册、登录、个人资料、消息发送、帖子发布、点赞和评论等功能，具备良好的用户界面设计和交互体验。该前端应用与后端API集成，能够处理复杂的数据交互和状态管理，支持实时通知和搜索功能。'
+          name: 'Participate the development of Keke forum.',
+          des: 'This project is a social media application which is developed by Vue front-end frame and Spring boot. This application has functions such as users log-in, personal profile, messages sending, posting, following and commenting. This application also has a good design of webpage for users and interaction experiences. This application integrates front-end applications with back-end API, which can process complex data interaction and status management. It also supports real-time notification and searching.'
         },
         {
           id: 2,
-          name: '参与牛课前端开发',
-          des: '该项目是一个使用Vue前端框架与Django开发的在线教育平台。该平台可以实现教师发布课程、学生注册、学习视频、在线测试、成绩管理等功能，具备良好的用户界面设计和易用性。该前端应用与后端API集成，能够处理大量的数据处理和业务逻辑，支持多种课程类型和学习方式。'
+          name: 'Participate Niuke front-end development',
+          des: 'This project is an open online education platform which is developed by Vue front-end frame and Django. This platform has functions such as course releases, students registration, uploading videos, online tests and grades management. It has good user interactions and is easy to operate. This front-end application integrates with back-end API, which can process mass data and business logic. It also supports various types of courses and learning methods.'
         },
       ]
     }

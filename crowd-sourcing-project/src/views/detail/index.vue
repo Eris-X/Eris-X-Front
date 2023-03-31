@@ -1,46 +1,48 @@
 <template>
   <div class="detail-page">
-    <span style="color: #888;cursor: pointer;" @click="back"><i class="el-icon-arrow-left"></i>返回</span>
+    <span style="color: #888;cursor: pointer;" @click="back"><i class="el-icon-arrow-left"></i>Back</span>
     <div class="contain">
       <div class="title">
         <img src="../../assets/images/detail-title.png" alt="" width="200px" style="margin-bottom: 20px;">
         <div class="name">{{ list.name }}</div>
         <div class="status">
-          <span :class="{ 'is-active': list.status === 0 }">未开始</span>/
-          <span :class="{ 'is-active': list.status === 1 }">进行中</span>/
-          <span :class="{ 'is-active': list.status === 2 }">已完成</span>/
-          <span :class="{ 'is-active': list.status === 3 }">失败</span>
+          <span :class="{ 'is-active': list.status === 0 }">Not Started</span>/
+          <span :class="{ 'is-active': list.status === 1 }">Ongoing</span>/
+          <span :class="{ 'is-active': list.status === 2 }">Done</span>/
+          <span :class="{ 'is-active': list.status === 3 }">Fail</span>
         </div>
       </div>
       <div class="inner">
         <div class="des">{{ list.description }}</div>
         <div class="skill">
           <span class="center">
-            <star />需要的技能: {{ list.skill }}
+            <star />Skills needed: {{ list.skill }}
           </span>
           <span class="center">
-            <star />信誉分、技能分要求：信誉分：{{ list.creditScore }}分 技能分：{{ list.skillScore }}分
+            <!-- <star />Reputation & Skill needed:Reputation Credits:{{ list.creditScore }} Skill needed:{{ list.skillScore }} -->
+
+            <star />Reputation & Skill needed:Reputation Credits:{{ list.creditScore }} Skill Credits:{{ list.skillScore }}
           </span>
         </div>
         <div class="rule center">
-          <star />支付规则： {{ list.payRule }}
+          <star />Pay method： {{ list.payRule }}
         </div>
         <div class="explain">
           <div class="center">
-            <star />需求说明：
+            <star />Demand information:
           </div>
           <div>{{ list.explain }}</div>
         </div>
         <div class="publisher">
           <div class="left center">
-            <star />发单方：{{ list.publisher }}
-            <star />薪资：{{ list.money }}
-            <star />时间：{{ list.time }}
+            <star />Issuer:{{ list.publisher }}
+            <star />Salary:{{ list.money }}
+            <star />Date:{{ list.time }}
           </div>
           <div class="right">
-            <el-button v-if="user.role === '发布者'" type="primary">提交任务</el-button>
-            <el-button v-if="user.role === '打工人' && list.status === 0" type="primary"
-              @click="receiveTask">接受任务</el-button>
+            <el-button v-if="user.role === 'issuer'" type="primary">Submit Task</el-button>
+            <el-button v-if="user.role === 'worker' && list.status === 0" type="primary"
+              @click="receiveTask">Accept Task</el-button>
           </div>
         </div>
       </div>
@@ -86,11 +88,20 @@ export default {
     }
   },
   created() {
+    // if (this.$route.params) {
+    //   const detail = this.$route.params;
+    //   detail.payRule = detail.payRule === 1 ? '订单/尾款' : (
+    //     detail.payRule === 2 ? '里程碑付款' : (
+    //       detail.payRule === 3 ? '一次性付款' : ''
+    //     )
+    //   )
+    //   this.list = detail;
+    // }
     if (this.$route.params) {
       const detail = this.$route.params;
-      detail.payRule = detail.payRule === 1 ? '订单/尾款' : (
-        detail.payRule === 2 ? '里程碑付款' : (
-          detail.payRule === 3 ? '一次性付款' : ''
+      detail.payRule = detail.payRule === 1 ? 'Deposit & Final Payment ' : (
+        detail.payRule === 2 ? 'Milestone Payment' : (
+          detail.payRule === 3 ? 'One-time Payment' : ''
         )
       )
       this.list = detail;

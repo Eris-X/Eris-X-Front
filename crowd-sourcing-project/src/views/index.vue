@@ -19,14 +19,14 @@
                   class="el-icon-wallet"
                   style="font-size:20px; color:#fff; margin-right:5px;"
                 />
-                <span style="color:#fff; font-size:16px;">余额</span>
+                <span style="color:#fff; font-size:16px;">Balance</span>
               </div>
               <div class="tikuan-btn">
                 <i
                   class="el-icon-bank-card"
                   style="font-size:20px; color:#000; margin-right:5px;"
                 />
-                  <span style="color:#000;">提款</span>
+                  <span style="color:#000;">Withdraw</span>
                 </div>
             </div>
             <div class="main">
@@ -46,7 +46,7 @@
             <div class="title">
               <div class="diff">
                 <img src="../assets/images/fans.png" alt="" width="18px" style="margin-right: 10px">
-                <span style="color:#fff; font-size:16px;">正在进行的订单</span>
+                <span style="color:#fff; font-size:16px;">Ongoing Order</span>
               </div>
             </div>
             <div class="main">
@@ -59,7 +59,7 @@
             <div class="title">
               <div class="diff">
                 <img src="../assets/images/sell.png" alt="" width="18px" style="margin-right: 10px">
-                <span style="color:#fff; font-size:16px;">验收中</span>
+                <span style="color:#fff; font-size:16px;">Checking</span>
               </div>
             </div>
             <div class="main">
@@ -72,7 +72,7 @@
             <div class="title">
               <div class="diff">
                 <img src="../assets/images/nft.png" alt="" width="18px" style="margin-right: 10px">
-                <span style="color:#fff; font-size:16px;">待评价</span>
+                <span style="color:#fff; font-size:16px;">To be commented</span>
               </div>
             </div>
             <div class="main">
@@ -90,22 +90,22 @@
           style="width: 100%">
           <el-table-column
             prop="date"
-            label="截止日期"
+            label="Deadline"
             width="180">
           </el-table-column>
           <el-table-column
             prop="name"
-            label="项目名称"
+            label="Project Name"
             width="180">
           </el-table-column>
           <el-table-column
             prop="progress"
-            label="项目进度"
-            width="100">
+            label="Project Progress"
+            width="150">
           </el-table-column>
           <el-table-column
             prop="address"
-            label="项目简介"
+            label="Project Abstract"
             >
           </el-table-column>
 
@@ -130,18 +130,18 @@ export default {
     return {
       tableData: [{
         date: '2023-07-02',
-        name: '开发购物网站',
-        address: '为耐克公司开发一个购物网站，涉及到产品展示页面以及支付接口。要求使用spring boot框架。',
+        name: 'Develop Shopping Websites.',
+        address: 'Develop a shopping website for Nike, requesting a product which has a webpage and payment interface. Need to use spring boot frame.',
         progress:'10%'
       }, {
         date: '2023-05-04',
-        name: '开发微信小程序',
-        address: '为爱拍照相馆开发一个微信小程序，实现信息展示、顾客预约、顾客支付等功能。',
+        name: 'Develop wechat mini programs.',
+        address: 'Develop a wechat mini program for Aipai photo studio. Need to realize functions of showing information, reservation and payment.',
         progress:'90%'
       }, {
         date: '2023-04-01',
-        name: '设计一个Python脚本',
-        address: '设计一个python脚本调用twitter的api爬取指定话题下的推文，要求在2023.4月前完成',
+        name: 'Design a Python script.',
+        address: 'Design a python script which uses api of twitter to get tweets from assigned hashtags. Need to be done before April of 2023.',
         progress:'56%'
       }],
       balance:0,

@@ -88,7 +88,7 @@ export const constantRoutes = [
         path: 'personal-data',
         component: () => import('@/views/personalData'),
         name: 'PersonalData',
-        meta: { title: '个人资料', icon: 'dashboard', affix: true }
+        meta: { title: 'Personal Profile', icon: 'dashboard', affix: true }
       },
       // {
       //   path: 'wallet',
@@ -100,7 +100,7 @@ export const constantRoutes = [
         path: 'push-task',
         component: () => import('@/views/pushTask'),
         name: 'PushTask',
-        meta: { title: '发布任务', icon: 'dashboard', affix: true }
+        meta: { title: 'Publish Task', icon: 'dashboard', affix: true }
       },
       {
         path: 'task-detail/:arg',

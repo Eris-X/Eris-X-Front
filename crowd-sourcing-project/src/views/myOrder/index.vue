@@ -4,11 +4,11 @@
       <div
         :class="['btn', com==='UnderWay' ? 'is-active': '']" @click="() => this.com = 'UnderWay'"
         style="margin-right: 15px;"
-      >进行中的订单</div>
-      <div :class="['btn', com==='History' ? 'is-active': '']" @click="() => this.com = 'History'">历史订单</div>
+      >Ongoing Orders</div>
+      <div :class="['btn', com==='History' ? 'is-active': '']" @click="() => this.com = 'History'">Historical Orders</div>
     </div>
     <div style="margin: 10px 0; text-align: right;">
-      <el-button v-if="user.role === '发布者'" type="primary" @click="pushTask">发布任务</el-button>
+      <el-button v-if="user.role === 'issuer'" type="primary" @click="pushTask">Issue Orders</el-button>
     </div>
     <div class="container">
       <component :is="com"></component>

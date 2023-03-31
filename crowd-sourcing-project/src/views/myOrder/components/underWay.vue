@@ -15,12 +15,12 @@
         <div class="des mb10" style="color: #a7a8a8;">{{ item.description }}</div>
         <div class="bottom mb10">
           <div class="left">
-            <div class="publisher">发单方：{{ item.publisher }}</div>
-            <div class="money" style="margin-left:10px;">薪资：{{ item.money }}</div>
+            <div class="publisher">Issuer：{{ item.publisher }}</div>
+            <div class="money" style="margin-left:10px;">Salary：{{ item.money }}</div>
           </div>
           <div class="right">
             <!-- <div class="progress">项目进度：{{ item.progress }}</div> -->
-            <el-button type="primary" style="margin-left:10px;" @click="submit(item)">提交任务</el-button>
+            <el-button type="primary" style="margin-left:10px;" @click="submit(item)">Submit</el-button>
           </div>
         </div>
       </div>

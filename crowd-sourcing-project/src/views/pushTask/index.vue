@@ -1,13 +1,13 @@
 <template>
   <div class="push-task">
     <el-form ref="form" :model="form" label-width="120px" class="form">
-      <el-form-item label="任务名">
+      <el-form-item label="Objects name">
         <el-input v-model="form.name" style="width: 300px;"></el-input>
       </el-form-item>
-      <el-form-item label="技能需求">
+      <el-form-item label="Skills needed">
         <el-select
           v-model="form.region"
-          placeholder="请选择技能需求"
+          placeholder="Please select skill wanted"
           multiple
         >
           <el-option label="java" value="java"></el-option>
@@ -18,33 +18,33 @@
           <el-option label="c" value="c"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="信誉分门槛">
+      <el-form-item label="Reputation credits threshold">
         <el-input v-model="form.creditScore" style="width: 220px;"></el-input>
       </el-form-item>
-      <el-form-item label="技能分门槛">
+      <el-form-item label="Skill credits threshold">
         <el-input v-model="form.skillScore" style="width: 220px;"></el-input>
       </el-form-item>
-      <el-form-item label="支付规则">
+      <el-form-item label="Pay method">
         <el-select
           v-model="form.pay"
-          placeholder="请选择支付规则"
+          placeholder="Please select pay method"
         >
-          <el-option label="订单/尾款" value="1"></el-option>
-          <el-option label="里程碑付款" value="2"></el-option>
-          <el-option label="一次性付款" value="3"></el-option>
+          <el-option label="Deposit & Final Payment" value="1"></el-option>
+          <el-option label="Milestone Payment" value="2"></el-option>
+          <el-option label="One-time Payment" value="3"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="薪资">
+      <el-form-item label="Salary">
         <el-input v-model="form.money" style="width: 220px;"></el-input>
       </el-form-item>
-      <el-form-item label="任务介绍">
+      <el-form-item label="Object introduction">
         <el-input type="textarea"  :autosize="{ minRows: 3, maxRows: 6}" v-model="form.intro" style="width: 400px;"></el-input>
       </el-form-item>
-      <el-form-item label="需求说明">
+      <el-form-item label="Demand information">
         <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 6}" v-model="form.desc" style="width: 400px;"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit" >发布任务</el-button>
+        <el-button type="primary" @click="onSubmit" >Submit</el-button>
       </el-form-item>
     </el-form>
   </div>

@@ -17,25 +17,25 @@
               <i
                 class="el-icon-success"
                 style="color:#41deca;margin-right:10px;font-size:20px;font-weight: 700;"
-              ></i>已完成
+              ></i>Done
             </div>
             <div v-if="!item.taskStatus" style="display: flex;">
               <i
                 class="el-icon-error"
                 style="color:red;margin-right:10px;font-size:20px;font-weight: 700;"
-              ></i>失败
+              ></i>fail
             </div>
           </div>
         </div>
         <div class="des mb10" style="color: #a7a8a8;">{{ item.description }}</div>
         <div class="bottom mb10">
           <div class="left">
-            <div class="publisher">发单方：{{ item.publisher }}</div>
-            <div class="money" style="margin-left:10px;">薪资：{{ item.money }}</div>
-            <div class="money" style="margin-left:10px;">时间：{{ item.time }}</div>
+            <div class="publisher">Issuer:{{ item.publisher }}</div>
+            <div class="money" style="margin-left:10px;">Salary:{{ item.money }}</div>
+            <div class="money" style="margin-left:10px;">Date:{{ item.time }}</div>
           </div>
           <div class="right">
-            <el-button type="primary" style="margin-left:10px;" @click="viewDetail(item)">查看详情</el-button>
+            <el-button type="primary" style="margin-left:10px;" @click="viewDetail(item)">Detail</el-button>
           </div>
         </div>
     </div>
@@ -49,9 +49,9 @@ export default {
       // taskList: [
       //   {
       //     id: 1,
-      //     name: '设计一个物流管理系统',
-      //     des: '设计一个物流管理系统，该系统需要具备实时数据处理和可视化展示、多角色权限管理和可扩展性等特性。',
-      //     publisher: '何老板',
+      //     name: 'Design a logistical management system.',
+      //     des: 'Design a logistical management system which has characteristics such as real-time data processing, visualization, multiple-role management and scalability. ',
+      //     publisher: 'Boss He',
       //     money: '10,000',
       //     progress: '10',
       //     time: '2022/01/11-2022/05/12',
@@ -59,9 +59,9 @@ export default {
       //   },
       //   {
       //     id: 2,
-      //     name: '开发一个在线教育平台',
-      //     des: '开发一个在线教育平台，需要有教师发布课程、学生注册、学习视频、在线测试、成绩管理等功能。',
-      //     publisher: '刘老板',
+      //     name: 'Develop an online education platform',
+      //     des: 'Develop an online education platform where there exist functions such as courses release, students registration, study videos, online tests and grades management.',
+      //     publisher: 'Boss Liu',
       //     money: '26,000',
       //     progress: '90',
       //     time: '2022/01/12-2022/02/22',
@@ -69,9 +69,9 @@ export default {
       //   },
       //   {
       //     id: 3,
-      //     name: '设计一个社交媒体应用',
-      //     des: '支持用户登录、个人资料、消息发送、帖子发布、点赞和评论等功能。',
-      //     publisher: '刘老板',
+      //     name: 'Develop a social media app.',
+      //     des: 'Support functions such as users log-in, personal profile, messages sending, posting, following and commenting.',
+      //     publisher: 'Boss Liu',
       //     money: '20,000',
       //     progress: '56',
       //     time: '2022/02/18-2022/03/22',
