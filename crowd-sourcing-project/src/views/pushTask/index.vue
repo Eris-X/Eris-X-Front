@@ -1,7 +1,7 @@
 <template>
   <div class="push-task">
     <el-form ref="form" :model="form" label-width="120px" class="form">
-      <el-form-item label="Objects name">
+      <el-form-item label="Tasks name">
         <el-input v-model="form.name" style="width: 300px;"></el-input>
       </el-form-item>
       <el-form-item label="Skills needed">

@@ -13,11 +13,11 @@
                 </el-menu-item>
                 <el-menu-item index="order-receive-hall">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">Order Space</span>
+                    <span slot="title">Task Space</span>
                 </el-menu-item>
                 <el-menu-item index="my-order">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">My Order</span>
+                    <span slot="title">My Task</span>
                 </el-menu-item>
                 <el-menu-item index="personal-data">
                     <i class="el-icon-menu"></i>

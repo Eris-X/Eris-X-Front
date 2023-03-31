@@ -95,17 +95,17 @@
           </el-table-column>
           <el-table-column
             prop="name"
-            label="Project Name"
+            label="Task Name"
             width="180">
           </el-table-column>
           <el-table-column
             prop="progress"
-            label="Project Progress"
+            label="Task Progress"
             width="150">
           </el-table-column>
           <el-table-column
             prop="address"
-            label="Project Abstract"
+            label="Task Abstract"
             >
           </el-table-column>
 

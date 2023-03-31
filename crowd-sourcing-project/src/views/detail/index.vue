@@ -21,7 +21,10 @@
           <span class="center">
             <!-- <star />Reputation & Skill needed:Reputation Credits:{{ list.creditScore }} Skill needed:{{ list.skillScore }} -->
 
-            <star />Reputation & Skill needed:Reputation Credits:{{ list.creditScore }} Skill Credits:{{ list.skillScore }}
+            <star />Reputation Credits:{{ list.creditScore }}
+          </span>
+          <span>
+            <star/>Skill Credits:{{ list.skillScore }}
           </span>
         </div>
         <div class="rule center">

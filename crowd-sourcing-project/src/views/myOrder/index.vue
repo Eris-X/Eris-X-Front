@@ -4,11 +4,11 @@
       <div
         :class="['btn', com==='UnderWay' ? 'is-active': '']" @click="() => this.com = 'UnderWay'"
         style="margin-right: 15px;"
-      >Ongoing Orders</div>
+      >Ongoing Tasks</div>
       <div :class="['btn', com==='History' ? 'is-active': '']" @click="() => this.com = 'History'">Historical Orders</div>
     </div>
     <div style="margin: 10px 0; text-align: right;">
-      <el-button v-if="user.role === 'issuer'" type="primary" @click="pushTask">Issue Orders</el-button>
+      <el-button v-if="user.role === 'issuer'" type="primary" @click="pushTask">Issue Tasks</el-button>
     </div>
     <div class="container">
       <component :is="com"></component>
