@@ -39,10 +39,10 @@
       width="480px"
       custom-class="url-dialog"
     >
-      <div style="width:60px;">URL: </div><el-input v-model="url" placeholder="请输入URL"></el-input>
+      <div style="width:60px;">URL: </div><el-input v-model="url" placeholder="Please enter the link of the task code."></el-input>
       <div slot="footer" class="dialog-footer">
         <!-- <el-button @click="dialogFormVisible = false">取 消</el-button> -->
-        <el-button type="primary" @click="submit">确 定</el-button>
+        <el-button type="primary" @click="submit">Submit</el-button>
       </div>
     </el-dialog>
   </div>
