@@ -134,7 +134,7 @@ export default {
             workerHomeData.SkillScore += 5;
             localStorage.setItem('workerHomeData', JSON.stringify(workerHomeData));
 
-            this.$message.success('任务已提交，请到历史订单中查看', {
+            this.$message.success('The task has been submitted. Please check it in the Historical Tasks.', {
             // duration控制弹窗关闭时间
             duration: 5000
           });

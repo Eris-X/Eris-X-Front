@@ -6,8 +6,8 @@ export const dog = {
   taskHall: [
     {
       id: 1,
-      name: 'Wechat mini program for community group purchase.', // 任务名称
-      description: 'Develop a community group purchase mini program on wechat which requires access to wechat pay. Responsible for providing arrangement and maintenance of server of mini programs.', // 介绍
+      name: 'Develop a wechat mini program', // 任务名称
+      description: 'Develop a community group purchase mini program on wechat which requires access to wechat pay.', // 介绍
       publisher: 'Boss Wang', // 发布方
       money: '30,000', // 薪酬
       skill: 'Vue, Linux', // 需要的技能
