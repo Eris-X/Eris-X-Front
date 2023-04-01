@@ -20,7 +20,7 @@
           </div>
           <div class="right">
             <!-- <div class="progress">项目进度：{{ item.progress }}</div> -->
-            <el-button v-if="user.role === 'worker'" type="primary" style="margin-left:10px;" @click="submit(item)">Submit</el-button>
+            <el-button v-if="user.role === 'worker'" type="primary" style="margin-left:10px;" @click="beforeSubmit(item)">Submit</el-button>
           </div>
         </div>
       </div>
@@ -33,6 +33,18 @@
         ></el-progress>
       </div>
     </div>
+    <el-dialog
+      :title="``"
+      :visible.sync="dialogFormVisible"
+      width="480px"
+      custom-class="url-dialog"
+    >
+      <div style="width:60px;">URL: </div><el-input v-model="url" placeholder="请输入URL"></el-input>
+      <div slot="footer" class="dialog-footer">
+        <!-- <el-button @click="dialogFormVisible = false">取 消</el-button> -->
+        <el-button type="primary" @click="submit">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -61,6 +73,9 @@ export default {
       ethContract: null,
       allowance: 0,
       chainId: '0x21A9B4',
+      dialogFormVisible: false,
+      current: {},
+      url: ''
     }
   },
   mounted() {
@@ -81,7 +96,13 @@ export default {
       this.ethContract.methods.saveEvidence(current.id,current.id).send(options);
     },
 
-    async submit(current) {
+    beforeSubmit(current) {
+      this.dialogFormVisible = true;
+      this.current = current;
+    },
+
+    async submit() {
+      const current = this.current;
       try {
         await this.submitPorjectTochain(current);
       } catch (err) {
@@ -119,6 +140,7 @@ export default {
           });
           }, 5000);
         }
+        this.dialogFormVisible = false;
       }
       
     },
@@ -197,6 +219,15 @@ export default {
       display: flex;
       align-items: center;  
     }
+  }
+}
+</style>
+<style lang="scss">
+.url-dialog {
+  background: #1a1f1f;
+  .el-dialog__body {
+    display: flex;
+    align-items: center;
   }
 }
 </style>
