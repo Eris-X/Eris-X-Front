@@ -14,7 +14,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The completion deadline for the development of the mini program is within six months from now. The technologies to be used include WeChat Mini Program API, React Native, Node.js, and MongoDB.',
       time: '2022/03/12-2022/04/11'
     },
     {
@@ -27,7 +27,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The program should adhere to ethical and legal considerations, such as respecting intellectual property rights and avoiding crawling of prohibited content.The technologies to be used include a web scraping library, such as Beautiful Soup or Scrapy, and a database system, such as MySQL or MongoDB.',
       time: '2022/03/12-2022/04/11'
     },
     {
@@ -40,7 +40,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 3, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The website should be visually appealing and reflect the company\'s brand and values.It should have a responsive design that works well on both desktop and mobile devices.',
       time: '2022/03/12-2022/04/11'
     },
     {
@@ -53,12 +53,12 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 2, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'It should be able to handle signals, such as Ctrl+C or Ctrl+Z.The shell should be secure and not allow unauthorized access to the system or its resources.',
       time: '2022/03/12-2022/04/11'
     },
     {
       id: 5,
-      name: 'System Diary Analysis', // 任务名称
+      name: 'System Logs Analysis', // 任务名称
       description: 'Some company had a cyber attack. Analyze the diary of assigned system, and find the unusual terms to get analysis report.', // 介绍
       publisher: 'Boss An', // 发布方
       money: '5,000', // 薪酬
@@ -66,7 +66,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The analysis should identify patterns, trends, and anomalies in the system behavior, such as spikes in CPU usage or disk I/O.',
       time: '2022/03/12-2022/04/11'
     },
   ],
@@ -86,7 +86,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The website should have an intuitive user interface with easy navigation and search functionality.It should have clear and concise product descriptions, including images, pricing, and availability information.',
       
     },
     {
@@ -103,7 +103,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'It should include an order tracking system to allow customers to monitor their order status and receive updates.The mini program should have a review system that allows customers to leave feedback on their purchases.',
     },
     {
       id: 8,
@@ -119,7 +119,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The script should be easy to use, with clear and concise documentation and user input validation.It should handle errors and exceptions gracefully, providing clear error messages for troubleshooting.',
     },
   ],
   // workerHistoryOrder -- 我的订单-历史订单(角色：打工人)
@@ -138,7 +138,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The system should be able to manage logistics operations, such as shipment scheduling, inventory management, and order tracking.It should provide real-time visibility into the status of shipments, inventory levels, and order fulfillment.',
     },
     {
       id: 10,
@@ -154,7 +154,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The platform should offer a wide range of courses and classes, covering various topics and levels of difficulty.It should have an intuitive user interface with easy navigation and search functionality.',
     },
     {
       id: 11,
@@ -189,7 +189,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The completion deadline for the development of the website is within six months from now.The technologies to be used include HTML, CSS, JavaScript, a CMS such as Magento or Shopify, and possibly a web framework such as React or Angular.',
       
     },
     {
@@ -206,7 +206,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'The mini program should have a content management system (CMS) that allows for easy updates and modifications to products and content.It should be optimized for search engines and have high-quality content that is regularly updated.',
     },
   ],
   // bossHistoryOrder -- 我的订单-历史订单(角色：发布者)
@@ -225,7 +225,7 @@ export const dog = {
       creditScore: '10', // 信誉分
       skillScore: '10', // 技能分
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
-      // explain: '1.巴拉巴拉...',
+      explain: 'It should be able to handle different modes of transportation, such as air, land, and sea.The system should support third-party logistics (3PL) providers and integrate with their systems.',
     },
   ]
 }

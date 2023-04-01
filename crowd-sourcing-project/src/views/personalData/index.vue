@@ -37,8 +37,8 @@
               <i class="el-icon-edit" style="color: rgb(65, 222, 202);margin-left: 5px;"></i>
             </span>
           </div>
-          <div>信誉分：99</div>
-          <div>技能分：99</div>
+          <div>CreditScore:99</div>
+          <div>SkillScore: 99</div>
         </div>
       </div>
       <div class="right">

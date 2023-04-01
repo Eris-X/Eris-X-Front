@@ -145,10 +145,22 @@ export default {
         progress:'56%'
       }],
       bossTableData: [{
-        date: '2023-07-02',
-        name: '代码里搜我是小瓜皮，就能找到代码罗',
-        address: 'Develop a shopping website for Nike, requesting a product which has a webpage and payment interface. Need to use spring boot frame.',
+        date: '2023-02-02',
+        name: 'Develop a website',
+        address: 'Build a Learning Management System for Tech Academy, requiring course management, student enrollment, and assessment tools. Must use Django framework.',
         progress:'10%'
+      },
+      {
+        date: '2023-03-21',
+        name: 'Develop a E-commerce Platform',
+        address: 'Develop an E-commerce Platform for WonderMart, requiring integration with multiple payment gateways and an efficient inventory management system. Must use Magento framework',
+        progress:'50%'
+      },
+      {
+        date: '2023-04-05',
+        name: 'Develop a Media App',
+        address: 'Create a Social Media App for Pet Lovers, requiring user profiles, real-time messaging, and push notifications. Must use React Native framework.',
+        progress:'70%'
       }],
       balance:0,
       tokenBalance: 0,
