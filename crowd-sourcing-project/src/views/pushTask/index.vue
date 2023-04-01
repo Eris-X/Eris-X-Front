@@ -100,7 +100,7 @@ export default {
       localStorage.setItem('bossUnderWayOrder', JSON.stringify(bossUnderWayOrder));
 
       setTimeout(() => {
-        this.$message.success('任务发布成功，请前往任务大厅或我的订单查看！', {
+        this.$message.success('Task published successfully. Please go to the Task Pool or My Task to check it.', {
           duration: 5000
         });
         this.$router.push('/my-order');

@@ -146,23 +146,35 @@ export default {
         address: 'Design a python script which uses api of twitter to get tweets from assigned hashtags. Need to be done before April of 2023.',
         progress:'56%'
       }],
+      // bossTableData: [{
+      //   date: '2023-02-02',
+      //   name: 'Develop a website',
+      //   address: 'Build a Learning Management System for Tech Academy, requiring course management, student enrollment, and assessment tools. Must use Django framework.',
+      //   progress:'10%'
+      // },
+      // {
+      //   date: '2023-03-21',
+      //   name: 'Develop a E-commerce Platform',
+      //   address: 'Develop an E-commerce Platform for WonderMart, requiring integration with multiple payment gateways and an efficient inventory management system. Must use Magento framework',
+      //   progress:'50%'
+      // },
+      // {
+      //   date: '2023-04-05',
+      //   name: 'Develop a Media App',
+      //   address: 'Create a Social Media App for Pet Lovers, requiring user profiles, real-time messaging, and push notifications. Must use React Native framework.',
+      //   progress:'70%'
+      // }],
       bossTableData: [{
         date: '2023-02-02',
-        name: 'Develop a website',
-        address: 'Build a Learning Management System for Tech Academy, requiring course management, student enrollment, and assessment tools. Must use Django framework.',
+        name: 'Develop Shopping Websites.',
+        address: 'Develop a shopping website for Nike, requesting a product which has a webpage and payment interface. Need to use spring boot frame.',
         progress:'10%'
       },
       {
         date: '2023-03-21',
-        name: 'Develop a E-commerce Platform',
-        address: 'Develop an E-commerce Platform for WonderMart, requiring integration with multiple payment gateways and an efficient inventory management system. Must use Magento framework',
-        progress:'50%'
-      },
-      {
-        date: '2023-04-05',
-        name: 'Develop a Media App',
-        address: 'Create a Social Media App for Pet Lovers, requiring user profiles, real-time messaging, and push notifications. Must use React Native framework.',
-        progress:'70%'
+        name: 'Develop wechat mini programs.',
+        address: 'Develop a wechat mini program for Aipai photo studio. Need to realize functions of showing information, reservation and payment.',
+        progress:'90%'
       }],
       balance:0,
       tokenBalance: 0,
