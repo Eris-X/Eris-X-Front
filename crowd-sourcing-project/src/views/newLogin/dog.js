@@ -227,5 +227,23 @@ export const dog = {
       payRule: 1, // 订单/尾款-1， 里程碑付款-2， 一次性付款-3
       explain: 'It should be able to handle different modes of transportation, such as air, land, and sea.The system should support third-party logistics (3PL) providers and integrate with their systems.',
     },
-  ]
+  ],
+  // workerHomeData -- 打工者 Home
+  workerHomeData: {
+    name: 'Lulu',
+    eth: 22,
+    crt: 33,
+    ongoing: 4,
+    commented: 5,
+    creditScore: 99,
+    SkillScore: 22
+  },
+  // bossHomeData -- 发布者 Home
+  bossHomeData: {
+    name: 'Boss Li',
+    eth: 66,
+    crt: 77,
+    ongoing: 8,
+    commented: 9,
+  }
 }

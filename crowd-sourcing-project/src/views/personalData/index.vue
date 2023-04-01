@@ -37,8 +37,8 @@
               <i class="el-icon-edit" style="color: rgb(65, 222, 202);margin-left: 5px;"></i>
             </span>
           </div>
-          <div>CreditScore:99</div>
-          <div>SkillScore: 99</div>
+          <div>CreditScore:{{ this.user.creditScore }}</div>
+          <div>SkillScore: {{ this.user.SkillScore }}</div>
         </div>
       </div>
       <div class="right">
@@ -70,6 +70,12 @@
 <script>
 export default {
   name: 'PersonalData',
+  computed: {
+    user() {
+      const user = localStorage.getItem('workerHomeData');
+      return JSON.parse(user);
+    }
+  },
   data() {
     return {
       userName: 'Lulu',

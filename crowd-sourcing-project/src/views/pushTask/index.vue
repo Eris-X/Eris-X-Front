@@ -103,6 +103,7 @@ export default {
         this.$message.success('任务发布成功，请前往任务大厅或我的订单查看！', {
           duration: 5000
         });
+        this.$router.push('/my-order');
       }, 5000);
     },
     async submitPorjectTochain() {

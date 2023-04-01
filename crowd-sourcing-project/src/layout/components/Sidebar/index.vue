@@ -19,7 +19,7 @@
                     <i class="el-icon-menu"></i>
                     <span slot="title">My Task</span>
                 </el-menu-item>
-                <el-menu-item index="personal-data">
+                <el-menu-item v-if="user.role==='worker'" index="personal-data">
                     <i class="el-icon-menu"></i>
                     <span slot="title">My Profile</span>
                 </el-menu-item>
@@ -43,6 +43,10 @@ export default {
         Logo
     },
     computed: {
+        user() {
+        const role = sessionStorage.getItem('role');
+        return JSON.parse(role);
+        },
         activeMenu() {
             const route = this.$route;
             const { meta, path } = route;

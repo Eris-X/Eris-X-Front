@@ -3,8 +3,8 @@
     <el-row :gutter="20">
       <el-col :sm="24" :lg="24">
         <div class="avator-container">
-          <div class="avator"></div>
-          <span class="name">Lulu</span>
+          <div :class="['avator', this.user.role==='worker'?'worker':'boss']"></div>
+          <span class="name">{{ home.name }}</span>
         </div>
       </el-col>
     </el-row>
@@ -31,11 +31,13 @@
             </div>
             <div class="main">
               <div class="eth" style="border-right: 1px solid #262c2c;">
-                <span style="color: #fff; font-size: 22px;">{{this.balance}}</span>
+                <!-- <span style="color: #fff; font-size: 22px;">{{this.balance}}</span> -->
+                <span style="color: #fff; font-size: 22px;">{{this.home.eth}}</span>
                 <span style="color: #818f8e;">ETH</span>
               </div>
               <div class="usd">
-                <span style="color: #fff; font-size: 22px;">{{this.tokenBalance}}</span>
+                <!-- <span style="color: #fff; font-size: 22px;">{{this.tokenBalance}}</span> -->
+                <span style="color: #fff; font-size: 22px;">{{this.home.crt}}</span>
                 <span style="color: #818f8e;">CRT</span>
               </div>
             </div>
@@ -50,11 +52,11 @@
               </div>
             </div>
             <div class="main">
-              <span>3</span>
+              <span>{{this.home.ongoing}}</span>
             </div>
           </div>
         </div>
-        <div class="con con2">
+        <!-- <div class="con con2">
           <div class="con-inner">
             <div class="title">
               <div class="diff">
@@ -66,7 +68,7 @@
               <span>2</span>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="con con2">
           <div class="con-inner">
             <div class="title">
@@ -76,7 +78,7 @@
               </div>
             </div>
             <div class="main">
-              <span>4</span>
+              <span>{{this.home.commented}}</span>
             </div>
           </div>
         </div>
@@ -175,6 +177,11 @@ export default {
     user() {
       const role = sessionStorage.getItem('role');
       return JSON.parse(role);
+    },
+    home() {
+      const workerHomeData = JSON.parse(localStorage.getItem('workerHomeData'));
+      const bossHomeData = JSON.parse(localStorage.getItem('bossHomeData'));
+      return this.user.role === 'worker' ? workerHomeData : bossHomeData;
     }
   },
   mounted() {
@@ -265,8 +272,14 @@ export default {
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: url('../assets/images/monkey.jpeg') no-repeat center/cover;
+      // background: url('../assets/images/monkey.jpeg') no-repeat center/cover;
       margin-right: 15px;
+      &.worker {
+        background: url('../assets/images/monkey.jpeg') no-repeat center/cover;
+      }
+      &.boss {
+        background: url('../assets/images/bossLi.png') no-repeat center/cover;
+      }
     }
     .name {
       font-size: 24px;

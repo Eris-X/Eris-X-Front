@@ -82,9 +82,11 @@ export default {
       if (this.loginForm.role === 'worker') {
         localStorage.setItem('workerUnderWayOrder', JSON.stringify(dog.workerUnderWayOrder));
         localStorage.setItem('workerHistoryOrder', JSON.stringify(dog.workerHistoryOrder));
+        localStorage.setItem('workerHomeData', JSON.stringify(dog.workerHomeData));
       } else if (this.loginForm.role === 'issuer') {
         localStorage.setItem('bossUnderWayOrder', JSON.stringify(dog.bossUnderWayOrder));
         localStorage.setItem('bossHistoryOrder', JSON.stringify(dog.bossHistoryOrder));
+        localStorage.setItem('bossHomeData', JSON.stringify(dog.bossHomeData));
       }
       this.$router.push('/index');
     }

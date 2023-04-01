@@ -88,7 +88,6 @@ export default {
         console.log(err);
       } finally {
         // 删除 当前进行中的订单
-        console.log(111);
         const index = this.taskList.findIndex(item => item.id === current.id);
         if (index === -1) {
           // 删除失败了，给了个友情提示
@@ -104,6 +103,16 @@ export default {
             const workerHistoryOrder = JSON.parse(localStorage.getItem('workerHistoryOrder'));
             workerHistoryOrder.unshift(current);
             localStorage.setItem('workerHistoryOrder', JSON.stringify(workerHistoryOrder));
+
+            // 提交成功后，更新home、信誉分、技能分
+            const workerHomeData = JSON.parse(localStorage.getItem('workerHomeData'));
+            workerHomeData.crt += 10;
+            workerHomeData.ongoing -= 1;
+            workerHomeData.commented += 1;
+            workerHomeData.creditScore += 10;
+            workerHomeData.SkillScore += 5;
+            localStorage.setItem('workerHomeData', JSON.stringify(workerHomeData));
+
             this.$message.success('任务已提交，请到历史订单中查看', {
             // duration控制弹窗关闭时间
             duration: 5000

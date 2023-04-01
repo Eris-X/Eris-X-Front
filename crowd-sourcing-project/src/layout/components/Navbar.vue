@@ -4,7 +4,8 @@
       <span style="color: #aaa;font-size:12px;margin-right: 15px;">Role:{{ user.role }}</span>
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img src="../../assets/images/monkey.jpeg" class="user-avatar">
+          <img v-if="user.role==='worker'" src="../../assets/images/monkey.jpeg" class="user-avatar">
+          <img v-else src="../../assets/images/bossLi.png" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
