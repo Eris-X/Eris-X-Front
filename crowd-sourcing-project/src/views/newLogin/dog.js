@@ -243,7 +243,7 @@ export const dog = {
     name: 'Boss Li',
     eth: 66,
     crt: 77,
-    ongoing: 8,
+    ongoing: 5,
     commented: 9,
   }
 }

@@ -119,7 +119,7 @@ export default {
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background: url('../../assets/images/profile.jpg') no-repeat center/cover;
+        background: url('../../assets/images/monkey.jpeg') no-repeat center/cover;
       }
       .user {
         flex: 1;
