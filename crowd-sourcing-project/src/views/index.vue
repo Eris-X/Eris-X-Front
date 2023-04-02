@@ -33,7 +33,7 @@
               <div class="eth" style="border-right: 1px solid #262c2c;">
                 <!-- <span style="color: #fff; font-size: 22px;">{{this.balance}}</span> -->
                 <span style="color: #fff; font-size: 22px;">{{this.home.eth}}</span>
-                <span style="color: #818f8e;">ETH</span>
+                <span style="color: #818f8e;">LAT</span>
               </div>
               <div class="usd">
                 <!-- <span style="color: #fff; font-size: 22px;">{{this.tokenBalance}}</span> -->
