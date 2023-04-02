@@ -180,7 +180,7 @@ export default {
       // localStorage.setItem('bossUnderWayOrder', JSON.stringify(bossUnderWayOrder));
 
       setTimeout(() => {
-        this.$message.success('任务已接收，请到我的订单中查看', {
+        this.$message.success('Success', {
           // duration控制弹窗关闭时间
           duration: 5000
         });
