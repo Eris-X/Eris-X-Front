@@ -232,7 +232,7 @@ export const dog = {
   workerHomeData: {
     name: 'Lulu',
     eth: 22,
-    crt: 33,
+    crt: 99,
     ongoing: 4,
     commented: 5,
     creditScore: 99,
